@@ -1,0 +1,34 @@
+.nav-container {
+    max-width: 1050px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-container_vertical-padding {
+    padding: 10px 0;
+}
+
+.nav-container__link {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-container__link:hover, .nav-container__link:hover .nav-container__link__svg__patch {
+    color: lightgray;
+    fill: lightgray;
+}
+
+.nav-container__link_white {
+    color: white;
+}
+
+.nav-container__link_black {
+    color: black;
+}
+
+.nav-container__item-name {
+    padding: 10px 0 5px 0;
+}

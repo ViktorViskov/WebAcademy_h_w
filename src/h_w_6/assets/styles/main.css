@@ -1,0 +1,153 @@
+.section-container {
+    max-width: 1050px;
+    width: 100%;
+    margin: auto;
+}
+
+.section-container_flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.section-container_flex-reverse {
+    flex-direction: row-reverse;
+}
+
+.section-container_column {
+    flex-direction: column;
+}
+
+.section-container_compare {
+    background: url('../img/howtoshoot_large_2x.jpg') no-repeat;
+    background-size: contain;
+    padding: 232px 0;
+    max-width: 1140px;
+    height: 676px;
+}
+
+.section-container_extra-width {
+    max-width: 1250px;
+}
+
+.section-container_padding {
+    padding: 25px;
+}
+
+.section-container_padding-bottom-none {
+    padding-bottom: 0;
+}
+
+.section-container_center {
+    text-align: center;
+}
+
+.section-container__title-h2 {
+    margin: 20px 0;
+    font-size: 45px;
+}
+
+.section-container__title-h2_white {
+    color: white;
+}
+
+.section-container__title-h2_margin {
+    margin: 20px 30px;
+}
+
+.section-container__title-h3 {
+    font-size: 30px;
+}
+
+.section-container__container-for-content {
+    width: 500px;
+    flex-shrink: 0;
+    margin: 0 10px;
+}
+
+.section-container__container-for-content_extra-width {
+    width: 560px;
+}
+
+.section-container__container-for-content_extra-margin {
+    margin: 20px 10px;
+}
+
+.section-container__container-for-content_padding {
+    padding: 20px 30px;
+}
+
+.section-container__container-for-content_padding-top {
+    padding-top: 20px;
+}
+
+.section-container__container-for-content_with-height {
+    height: 540px;
+}
+/* висота не обовязкова ставлю для того щоб в контейнері під картинкою фон був ідентичиний картинці як і напроти. Свого роду костиль */
+.section-container__container-for-content_with-extra-height {
+    min-height: 705px;
+}
+
+.section-container__container-for-content_airpods {
+    background: url('../img/airpods_large_2x.jpg') no-repeat 0 240px;
+    background-size: contain;
+    background-color: #fafafa;
+}
+
+.section-container__container-for-content_accessories {
+    background: url('../img/accessories_large_2x.jpg') no-repeat 0 240px;
+    background-size: contain;
+    background-color: #fafafa;
+}
+
+.section-container__container-for-content_background {
+    background-color: #fafafa;
+}
+
+.section-container__container-for-dato {
+    margin: 20px 0;
+}
+
+.section-container__container-for-dato__text {
+    color: #888;
+    margin: 0 15px;
+}
+
+.section-container__link {
+    display: block;
+    margin: 50px 0 0 0;
+    color: #0070c9;
+    font-size: 22px;
+}
+
+.section-container__link::after {
+    content: ' >';
+}
+
+.section-container__link:hover {
+    text-decoration: underline;
+}
+
+.section-container__image {
+    width: 650px;
+    margin: 50px 0;
+}
+
+.section-container__image_extra-width {
+    width: 1050px;
+}
+
+.section-container__image_for-content-block {
+    width: 560px;
+}
+
+.section-container__image_margin-bottom-none {
+    margin-bottom: -3px;
+}
+
+.section-container__text {
+    text-align: justify;
+    margin: 0 50px;
+}

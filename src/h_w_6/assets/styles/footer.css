@@ -1,0 +1,33 @@
+.footer-container {
+    max-width: 1140px;
+    width: 100%;
+    margin: auto;
+    padding: 15px 0 150px 0;
+}
+
+.footer-container__copyrigting {
+    color: #888;
+    font-size: 11.5px;
+}
+
+.footer-container__navigation {
+    margin: 30px 0;
+}
+
+.footer-container__navigation__link {
+    color: #555;
+    padding: 0 15px;
+    border-right: 1px solid #d6d6d6;
+}
+
+.footer-container__navigation__link:first-of-type {
+    padding-left: 0;
+}
+
+.footer-container__navigation__link:last-of-type {
+    border: none;
+}
+
+.footer-container__navigation__link:hover {
+    text-decoration: underline;
+}
