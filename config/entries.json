@@ -1,5 +1,8 @@
 {
   "index": [
     "./src/index/index.js"
+  ],
+  "h_w_6": [
+    "./src/h_w_6/h_w_6.js"
   ]
 }
