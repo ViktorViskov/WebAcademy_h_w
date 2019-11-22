@@ -21,7 +21,7 @@
 
 .section-container_compare {
     background: url('../img/howtoshoot_large_2x.jpg') no-repeat;
-    background-size: contain;
+    background-size: cover;
     padding: 232px 0;
     max-width: 1140px;
     height: 676px;
@@ -85,7 +85,9 @@
 .section-container__container-for-content_with-height {
     height: 540px;
 }
+
 /* висота не обовязкова ставлю для того щоб в контейнері під картинкою фон був ідентичиний картинці як і напроти. Свого роду костиль */
+
 .section-container__container-for-content_with-extra-height {
     min-height: 705px;
 }
@@ -135,8 +137,32 @@
     margin: 50px 0;
 }
 
+@media screen and (max-width: 750px) {
+    .section-container__image {
+        width: 450px;
+    }
+}
+
 .section-container__image_extra-width {
     width: 1050px;
+}
+
+@media screen and (max-width: 1150px) {
+    .section-container__image_extra-width {
+        width: 850px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .section-container__image_extra-width {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .section-container__image_extra-width {
+        width: 450px;
+    }
 }
 
 .section-container__image_for-content-block {
