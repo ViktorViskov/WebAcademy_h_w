@@ -176,6 +176,17 @@ var t = function t() {
 
 /***/ }),
 
+/***/ "./src/index/index.css":
+/*!*****************************!*\
+  !*** ./src/index/index.css ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./src/index/index.js":
 /*!****************************!*\
   !*** ./src/index/index.js ***!
@@ -185,10 +196,12 @@ var t = function t() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _app_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.jsx */ "./src/index/app.jsx");
-// import './index.scss';
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ "./src/index/index.css");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _app_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.jsx */ "./src/index/app.jsx");
 
-Object(_app_jsx__WEBPACK_IMPORTED_MODULE_0__["t"])();
+
+Object(_app_jsx__WEBPACK_IMPORTED_MODULE_1__["t"])();
 console.log('HELTH CHECK');
 
 /***/ }),
