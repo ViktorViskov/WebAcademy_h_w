@@ -171,7 +171,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var t = function t() {
-  Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello world"), document.querySelector('#root'));
+  Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Viktor Viskov"), document.querySelector('#root'));
 };
 
 /***/ }),
