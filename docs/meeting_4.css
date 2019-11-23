@@ -47,6 +47,44 @@ body {
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
 }
 
+.header__nav-menu {
+    height: 63px;
+    border-bottom: 1px solid #d0d4d8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu__element {
+    margin: 0 10px;
+    padding: 0px 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #909090;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.7s;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-menu__element:hover {
+    color: #4e5665;
+    background-color: lightblue;
+    ;
+}
+
+.nav-menu__element_activ {
+    color: #4e5665;
+}
+
+.nav-menu__element_activ {
+    border-bottom: 4px solid #089bd9;
+}
+
 
 
 /*# sourceMappingURL=meeting_4.css.map*/
