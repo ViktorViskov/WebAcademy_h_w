@@ -12,7 +12,7 @@ html, body {
 .header {}
 
 .header-block {
-    background: url(./assets/images/rectangle.png) no-repeat;
+    background: url(./img/rectangle.png) no-repeat;
     height: 700px;
     padding: 40px;
 }
@@ -301,7 +301,3 @@ html, body {
     text-align: center;
     margin: auto;
 }
-
-
-
-/*# sourceMappingURL=meeting_4.css.map*/
