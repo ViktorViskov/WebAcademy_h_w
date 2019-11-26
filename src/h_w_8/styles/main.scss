@@ -1,0 +1,31 @@
+.section-container {
+  max-width: 1200px;
+  padding: 55px 5px;
+  margin: auto;
+  &_flex-model {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &_flex-column-reverse {
+    flex-direction: column-reverse;
+  }
+  &__content {
+    width: 500px;
+    h2 {
+      color: white;
+      font-size: 32px;
+    }
+    button {
+      padding: 15px 40px;
+      background-color: black;
+      border: none;
+      border-radius: 40px;
+      color: white;
+      font-size: 20px;
+    }
+  }
+  &__img {
+    width: 650px;
+  }
+}

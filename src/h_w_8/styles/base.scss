@@ -21,4 +21,10 @@ body {
 
 .page-container {
   width: 100%;
+  &_background-coffemilk {
+    background-color: $coffemilk;
+  }
+  &_height {
+    height: 61px;
+  }
 }
