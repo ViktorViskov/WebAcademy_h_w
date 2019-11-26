@@ -1,78 +1,77 @@
 .header {
-    width: 100%;
+  width: 100%;
 }
 
 .header__content {
-    background: url(../assets/img/rectangle.png) no-repeat;
-    background-size: cover;
-    height: 100vh;
-    border: 1px solid red;
-    padding: 30px;
+  background: url(../assets/img/rectangle.png) no-repeat;
+  background-size: cover;
+  height: 100vh;
+  border: 1px solid red;
+  padding: 30px;
 }
 
 .header-fieldset {
-    transform: rotatex(180deg);
-    border: 2px solid white;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  transform: rotatex(180deg);
+  border: 2px solid white;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .header-fieldset__header-legend {
-    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
-    font-size: 24px;
-    color: white;
-    text-align: center;
-    transform: inherit;
-    padding: 0 20px;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  transform: inherit;
+  padding: 0 20px;
 }
 
 .header-fieldset__content {
-    height: 96%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: inherit;
-    font-size: 192px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+  height: 96%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: inherit;
+  font-size: 192px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .header__nav-menu {
-    height: 63px;
-    border-bottom: 1px solid #d0d4d8;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 0;
-    padding: 0;
+  height: 63px;
+  border-bottom: 1px solid #d0d4d8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-menu__element {
-    margin: 0 10px;
-    padding: 0px 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #909090;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all 0.7s;
-    display: flex;
-    align-items: center;
-    height: 100%;
+  margin: 0 10px;
+  padding: 0px 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #909090;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.7s;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .nav-menu__element:hover {
-    color: #4e5665;
-    background-color: lightblue;
-    ;
+  color: #4e5665;
+  background-color: lightblue;
 }
 
 .nav-menu__element_activ {
-    color: #4e5665;
+  color: #4e5665;
 }
 
 .nav-menu__element_activ {
-    border-bottom: 4px solid #089bd9;
+  border-bottom: 4px solid #089bd9;
 }
