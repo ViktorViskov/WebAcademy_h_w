@@ -7,5 +7,8 @@
   ],
   "meeting_4": [
     "./src/meeting_4/meeting_4.js"
+  ],
+  "h_w_8": [
+    "./src/h_w_8/h_w_8.js"
   ]
 }
