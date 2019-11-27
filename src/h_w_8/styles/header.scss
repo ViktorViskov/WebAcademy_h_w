@@ -13,7 +13,10 @@
 .menu {
   display: flex;
   justify-content: space-between;
+  &__container_active .menu__element {
+    display: block;
 
+  }
   &__element {
     padding: 0 15px;
     font-weight: bold;
@@ -21,5 +24,44 @@
     &:hover {
       color: $coffemilk;
     }
+  }
+}
+.phone-menu {
+  height: 21px;
+  width: 30px;
+  flex-direction: column;
+  justify-content: space-between;  
+  display: none;
+  margin: 0 15px;
+  &_active {
+
+  }
+  &_active &__element:first-child{
+    transform: translate(0, 10px) rotate(-45deg);      
+  }
+  &_active &__element:nth-of-type(2){
+    display: none;      
+  }
+  &_active &__element:last-child{
+    transform: translate(0, -9px) rotate(45deg);      
+  }
+  &__element {
+    border: 1px solid black;
+    width: 100%;
+    transition: all 1s;
+  }
+}
+@media screen and (max-width: 767px) {
+  .phone-menu {
+    display: flex;
+  }
+  .menu__container {
+    display: none;    
+  }
+  .menu__container_active {
+    display: block;
+  }
+  .menu__container_active .menu__element {
+    margin: 40px 0;
   }
 }
