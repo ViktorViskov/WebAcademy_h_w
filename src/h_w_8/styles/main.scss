@@ -4,8 +4,9 @@
   margin: auto;
   &_flex {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
   &_reverse {
     flex-direction: row-reverse;
@@ -16,7 +17,8 @@
 }
 
 .content {
-  min-width: 400px;
+  width: 500px;
+  margin: 20px;
   &__title {
     font-size: 32px;
     &_white {
