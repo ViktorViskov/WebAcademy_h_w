@@ -2,30 +2,47 @@
   max-width: 1200px;
   padding: 55px 5px;
   margin: auto;
-  &_flex-model {
+  &_flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  &_flex-column-reverse {
-    flex-direction: column-reverse;
+  &_reverse {
+    flex-direction: row-reverse;
   }
-  &__content {
-    width: 500px;
-    h2 {
+  &__img {
+    width:  650px;
+  }
+}
+
+.content {
+  min-width: 400px;
+  &__title {
+    font-size: 32px;
+    &_white {
       color: white;
-      font-size: 32px;
     }
-    button {
-      padding: 15px 40px;
+  }
+  &__button {
+    padding: 15px 40px;
       background-color: black;
       border: none;
       border-radius: 40px;
       color: white;
       font-size: 20px;
-    }
   }
   &__img {
-    width: 650px;
+    &_right {
+      float: right;
+    }
+  }
+}
+
+.list {
+  &_right {
+    float: right;
+  }
+  &__element {
+    margin: 25px 0;
   }
 }

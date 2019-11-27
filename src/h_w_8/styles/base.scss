@@ -1,11 +1,15 @@
 @import "_values.scss";
 @import "_mixins.scss";
+/* @font-face {
+  font-family: 'aulp';
+  src: local('aulp'), url('') format('woff');
+} */
 
 * {
   box-sizing: border-box;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'aulp', sans-serif;
 }
 
 a {
