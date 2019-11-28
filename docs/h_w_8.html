@@ -11,11 +11,12 @@
 <link href="/h_w_8.css" rel="stylesheet"></head>
 
 <body>
+
   <header class="page-container_height">
     <div class="header-container">
       <div class="content-container">
         <nav class="menu">
-          <a href="#" class="menu__element">
+          <a href="#" class="menu__link">
             <svg width="55px" height="17px" viewBox="0 0 55 17">
               <title>logo</title>
               <defs>
@@ -57,16 +58,14 @@
               </g>
             </svg>
           </a>
-
-
-          <div class="menu__container">
-            <a href="#" class="menu__element">Wie funktionierts?</a>
-            <a href="#" class="menu__element">Testpartner werden</a>
-          </div>
-          <div class="phone-menu">
-            <div class="phone-menu__element"></div>
-            <div class="phone-menu__element"></div>
-            <div class="phone-menu__element"></div>
+          <ul class="menu__container ">
+            <li class="menu__element"><a href="#" class="menu__link">Wie funktionierts?</a></li>
+            <li class="menu__element"><a href="#" class="menu__link">Testpartner werden</a></li>
+          </ul>
+          <div class="menu-icon" onclick="hahah()">
+            <div class="menu-icon__element"></div>
+            <div class="menu-icon__element"></div>
+            <div class="menu-icon__element"></div>
           </div>
         </nav>
       </div>
@@ -111,7 +110,22 @@
         <img src="./assets/images/fridgeSectorCopy.png" class="section-container__img" alt="" />
       </div>
     </section>
-
+    <script>
+      function hahah() {
+        if (document.querySelector('.menu-icon_active') == undefined) {
+          let menuIcon = document.querySelector('.menu-icon');
+          let menuContainer = document.querySelector('.menu__container');
+          menuIcon.classList.add('menu-icon_active');
+          menuContainer.classList.add('menu__container_active');
+        }
+        else {
+          let element = document.querySelector('.menu-icon_active');
+          let menuContainer = document.querySelector('.menu__container');
+          element.classList.remove('menu-icon_active');
+          menuContainer.classList.remove('menu__container_active');
+        }
+      };
+    </script>
   </main>
   <footer></footer>
 <script type="text/javascript" src="/h_w_8.js"></script></body>

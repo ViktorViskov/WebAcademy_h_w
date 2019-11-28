@@ -3,7 +3,6 @@
   width: 100%;
   position: fixed;
   box-shadow: 0 -2px 15px black;
-  padding: 20px 0;
   background-color: #fff;
 }
 .content-container {
@@ -13,29 +12,36 @@
 .menu {
   display: flex;
   justify-content: space-between;
-  &__container_active .menu__element {
-    display: block;
-
-  }
-  &__element {
-    padding: 0 15px;
+  align-items: center;
+  transition: height 0.5s;
+  &__link {
+    display: inline-block;
     font-weight: bold;
-    transition: 0.3s color;
+    margin: 0 15px;
+    height: 100%;
+    padding: 20px 10px;
+    transition: color 0.3s;
     &:hover {
       color: $coffemilk;
     }
   }
+  &__container {
+    list-style: none;  
+    margin: 0;
+    padding: 0;
+    transition: font-size 0.3s;   
+  }
+  &__element {
+    display: inline-block;
+  }
 }
-.phone-menu {
+.menu-icon {
   height: 21px;
   width: 30px;
   flex-direction: column;
   justify-content: space-between;  
   display: none;
-  margin: 0 15px;
-  &_active {
-
-  }
+  margin: 20px 10px;
   &_active &__element:first-child{
     transform: translate(0, 10px) rotate(-45deg);      
   }
@@ -52,16 +58,24 @@
   }
 }
 @media screen and (max-width: 767px) {
-  .phone-menu {
+  .menu {
+    align-items: flex-start;
+    &__container {
+      font-size: 0; 
+      &_active {
+        background-color: #fff;
+        font-size: 16px;
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        right: 0;   
+        & .menu__element {
+          display: block;
+        }
+      }
+    }
+  }
+  .menu-icon {
     display: flex;
-  }
-  .menu__container {
-    display: none;    
-  }
-  .menu__container_active {
-    display: block;
-  }
-  .menu__container_active .menu__element {
-    margin: 40px 0;
-  }
+  }  
 }
