@@ -19,5 +19,8 @@
   ],
   "meeting_5": [
     "./src/meeting_5/meeting_5.js"
+  ],
+  "h_w_9": [
+    "./src/h_w_9/h_w_9.js"
   ]
 }

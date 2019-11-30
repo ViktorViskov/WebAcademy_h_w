@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://localhost:35729/livereload.js"></script>
+  <title key='title'></title>
+</head>
+
+<body>
+  <main class="main">
+    <div class="main__container">
+      <h2 class="main__title">Домашнє завдання №9</h2>
+    </div>
+    <div class="main__container">
+      <h2 class="main__title">Viktor Viskov</h2>
+    </div>
+    <div class="main__container">
+      <div class="main__app" onclick="appOne()">№1</div>
+      <div class="main__app" onclick="appTwo()">№2</div>
+      <div class="main__app" onclick="">№3</div>
+      <div class="main__app" onclick="">№4</div>
+    </div>
+  </main>
+  <script>
+    function randomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    };
+    function appOne() {
+      const words = ['жадина', 'говядина', 'соленый огурец', 'таракан', 'злая шоколадина', 'сосиска', 'ябеда ', 'ишак', 'плакса', 'блин', 'вредина', 'толстый'];
+      alert(words[randomNumber(0, words.length)]);
+    };
+    function appTwo() {
+      const bodyPart = ['нога', 'нос', 'голова', 'палец', 'жопа', 'колено', 'живот ', 'ступня', 'ухо', 'лицо', 'грудь', 'рот'];
+      const words = ['жирнее', 'больше', 'менше', 'уродливее', 'злое', 'ужасное', 'толстое', 'дурное', 'бледое', 'круглое', 'черно-жопое', 'толстый'];
+      const bodyPartAnimal = ['Хобот', 'хвост', 'лапа', 'морда', 'икла', 'перя', 'криля', 'копыта', 'шерсть', 'усы', 'когти', 'плавник'];
+      const animals = ['дельфина', 'коровы', 'кошки', 'таракана', 'осла', 'ишака', 'курицы', 'петуха', 'крысы', 'пса', 'бегемота', 'жирафы'];
+      alert('У тебя ' + bodyPart[randomNumber(0, bodyPart.length)] + ' еще более ' + words[randomNumber(0, words.length)] + ', чем ' + bodyPartAnimal[randomNumber(0, bodyPartAnimal.length)] + ' у ' + animals[randomNumber(0, animals.length)]);
+    }
+  </script>
+</body>
+
+</html>
