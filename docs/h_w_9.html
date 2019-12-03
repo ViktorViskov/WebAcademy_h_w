@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="http://localhost:35729/livereload.js"></script>
   <title key='title'></title>
-<link href="/h_w_9.css" rel="stylesheet"></head>
+<link href="./h_w_9.css" rel="stylesheet"></head>
 
 <body>
   <main class="main">
@@ -21,8 +21,8 @@
     <div class="main__container">
       <div class="main__app" onclick="appOne()">№1</div>
       <div class="main__app" onclick="appTwo()">№2</div>
-      <div class="main__app" onclick="">№3</div>
-      <div class="main__app" onclick="">№4</div>
+      <div class="main__app" onclick="appThree()">№3</div>
+      <div class="main__app" onclick="appFour()">№4</div>
     </div>
   </main>
   <script>
@@ -39,8 +39,22 @@
       const bodyPartAnimal = ['Хобот', 'хвост', 'лапа', 'морда', 'икла', 'перя', 'криля', 'копыта', 'шерсть', 'усы', 'когти', 'плавник'];
       const animals = ['дельфина', 'коровы', 'кошки', 'таракана', 'осла', 'ишака', 'курицы', 'петуха', 'крысы', 'пса', 'бегемота', 'жирафы'];
       alert('У тебя ' + bodyPart[randomNumber(0, bodyPart.length)] + ' еще более ' + words[randomNumber(0, words.length)] + ', чем ' + bodyPartAnimal[randomNumber(0, bodyPartAnimal.length)] + ' у ' + animals[randomNumber(0, animals.length)]);
+    };
+    function appThree() {
+      const bodyPart = ['нога', 'нос', 'голова', 'палец', 'жопа', 'колено', 'живот ', 'ступня', 'ухо', 'лицо', 'грудь', 'рот'];
+      const words = ['жирнее', 'больше', 'менше', 'уродливее', 'злое', 'ужасное', 'толстое', 'дурное', 'бледое', 'круглое', 'черно-жопое', 'толстый'];
+      const bodyPartAnimal = ['Хобот', 'хвост', 'лапа', 'морда', 'икла', 'перя', 'криля', 'копыта', 'шерсть', 'усы', 'когти', 'плавник'];
+      const animals = ['дельфина', 'коровы', 'кошки', 'таракана', 'осла', 'ишака', 'курицы', 'петуха', 'крысы', 'пса', 'бегемота', 'жирафы'];
+      const symbol = "-";
+      let stroke = ['У тебя', bodyPart[randomNumber(0, bodyPart.length)], 'еще более', words[randomNumber(0, words.length)], ', чем', bodyPartAnimal[randomNumber(0, bodyPartAnimal.length)], 'у', animals[randomNumber(0, animals.length)]];
+      alert(stroke.join(symbol));
+    };
+    function appFour() {
+      const text = ' больше, чем ';
+      array = [3, 2, 1];
+      alert(array.join(text));
     }
   </script>
-<script type="text/javascript" src="/h_w_9.js"></script></body>
+<script type="text/javascript" src="./h_w_9.js"></script></body>
 
 </html>
