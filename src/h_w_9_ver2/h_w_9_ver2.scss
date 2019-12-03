@@ -54,6 +54,7 @@ body {
     &__element {
         @include pageText;
         border: none;
+        margin: 0 15px;
     }
     &__text {
         @include pageText;
