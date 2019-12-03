@@ -22,5 +22,8 @@
   ],
   "h_w_9": [
     "./src/h_w_9/h_w_9.js"
+  ],
+  "h_w_9_ver2": [
+    "./src/h_w_9_ver2/h_w_9_ver2.js"
   ]
 }
