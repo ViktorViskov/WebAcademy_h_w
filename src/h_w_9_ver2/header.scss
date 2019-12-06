@@ -91,21 +91,23 @@ $links-color: white;
     }
     &__container {
         position: absolute;
-        border-radius: 50%;
-        width: 100px;
+        
+        width: 70px;
         height: 100px;
         transition: background-color 0.5s;
         &:hover {
             background-color: rgba(128, 128, 128, 0.8);
         }
         &_left {
+            border-radius:  0 50% 50% 0;
             top: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateY( -50%);
         }
         &_right {
+            border-radius: 50% 0 0 50%;
             top: 50%;
             right: 0;
-            transform: translate(50%, -50%);
+            transform: translateY( -50%);
         }
     }
     &__btn {
@@ -116,11 +118,11 @@ $links-color: white;
         position: absolute;
         &_left {
             top:50%;
-            transform: translate(65px, -50%) rotate(45deg);
+            transform: translate(25px, -50%) rotate(45deg);
         }
         &_right {
             top:50%;
-            transform: translate(5px, -50%) rotate(225deg);
+            transform: translate(15px, -50%) rotate(225deg);
         }
     }
 }
