@@ -1,0 +1,126 @@
+$title-color: white;
+$links-color: white;
+.header{
+}
+
+.offers {
+    background-color: #33333a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &__text {
+        font-size: 18px;
+        color: white;
+        margin: 20px;
+    }
+    &__email {
+        font-size: 14px;
+        text-transform: uppercase;
+        padding: 10px;
+        width: 360px;
+        border: 1px solid #666;
+        margin: 20px;
+        background-color: #33333a;
+        color: #fff;
+        &::placeholder {
+            color: white;
+        }
+    }
+    &__btn {
+        font-size: 14px;
+        padding: 10px 35px;
+        text-transform: uppercase;
+        border: none;
+        background-color: #fff;
+        margin: 20px;
+        color: rgb(58, 58, 58);
+    }
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1040px;
+    margin: auto;
+    padding: 28px 0;
+    &__element {
+        @include pageText;
+        border: none;
+        margin: 0 15px;
+    }
+    &__text {
+        @include pageText;
+        margin: 0 15px;
+    }
+    &__login {
+        display: flex;
+    }
+    &__icon {
+        height: 20px;
+        margin: 0 15px;
+    }
+}
+.slider {
+    position: relative;
+    width: 100%;
+    background: url('./assets/for-slider.jpg') 0 30% no-repeat;
+    background-size: cover;
+    height: 600px;
+    &__content {
+        width: 550px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%);
+    }
+    &__title {
+        line-height: 1.33;
+        font-size: 60px;
+        color: $title-color;
+        margin: 20px 0;
+    }
+    &__link {              
+        color: $links-color;
+        padding: 10px 0;
+        transition: border 0.5s;
+        &:hover {
+            border-bottom: 2px solid white;
+        }
+    }
+    &__container {
+        position: absolute;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        transition: background-color 0.5s;
+        &:hover {
+            background-color: rgba(128, 128, 128, 0.8);
+        }
+        &_left {
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &_right {
+            top: 50%;
+            right: 0;
+            transform: translate(50%, -50%);
+        }
+    }
+    &__btn {
+        width: 30px;
+        height: 30px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        position: absolute;
+        &_left {
+            top:50%;
+            transform: translate(65px, -50%) rotate(45deg);
+        }
+        &_right {
+            top:50%;
+            transform: translate(5px, -50%) rotate(225deg);
+        }
+    }
+}
