@@ -25,5 +25,8 @@
   ],
   "h_w_9_ver2": [
     "./src/h_w_9_ver2/h_w_9_ver2.js"
+  ],
+  "game": [
+    "./src/game/game.js"
   ]
 }

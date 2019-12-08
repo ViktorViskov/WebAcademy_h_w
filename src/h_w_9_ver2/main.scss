@@ -14,6 +14,12 @@
     padding: 10px;
     color: #33333a;
     transition: opacity 0.5s;
+    &_bigger {
+        width: 520px;
+    }
+    &_overline {
+        border-top: 2px solid black;
+    }
     &:hover &__container{
         opacity: 0.5;
     }
@@ -42,14 +48,40 @@
         border: none;
     }
     &__image {
+        position: relative;
         width: 240px;
+        &_bigger {
+            width: 500px;
+        }
+        
     }
     &__title {
         font-size: 18px;
         margin: 20px 0 10px 0;
+        letter-spacing: 1px;
+        color: #33333a;
+        font-weight: normal;;
+        &_smaller {
+            font-size: 16px;
+        }
+        &_medium {
+            font-size: 30px;        
+        }
     }
     &__price {
         align-self: flex-start;
         margin: 5px 0;
     }
+    &__text {
+        font-size: 18px;
+        line-height: 1.67;
+        color: #030303;
+    }
+}
+.title {
+    width: 100%;
+    text-align: center;
+    margin: 20px;
+    font-size: 42px;
+    font-weight: normal;
 }
