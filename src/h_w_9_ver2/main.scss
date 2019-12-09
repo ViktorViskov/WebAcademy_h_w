@@ -17,6 +17,9 @@
     &_bigger {
         width: 520px;
     }
+    &_max {
+        width: 100%;
+    }
     &_overline {
         border-top: 2px solid black;
     }
@@ -46,6 +49,10 @@
         color: white;
         background-color: #000;
         border: none;
+        &_static {
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
     }
     &__image {
         position: relative;
