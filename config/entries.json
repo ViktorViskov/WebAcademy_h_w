@@ -31,5 +31,8 @@
   ],
   "landing_1": [
     "./src/landing_1/landing_1.js"
+  ],
+  "functions": [
+    "./src/functions/functions.js"
   ]
 }

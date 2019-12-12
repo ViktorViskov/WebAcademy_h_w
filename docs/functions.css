@@ -1,0 +1,4 @@
+*{box-sizing:border-box}body{margin:0;padding:0;font-family:sans-serif;background-color:lightgray}.header{max-width:1050px;background-color:#fff;margin:50px auto 0 auto}.header__title{margin:0;padding:20px;text-align:center;color:darkblue}.main{margin:auto;max-width:1050px;background-color:#fff}.main__container{display:flex;flex-wrap:wrap;justify-content:space-evenly;list-style:none;padding:0;margin:0}.main__element{width:180px;padding:10px 0;margin:20px 0;border:1px solid #000;background-color:#add8e6;text-align:center;transition:background-color 0.4s}.main__element:hover{background-color:#98c4d3;cursor:pointer}.main__element:active{opacity:0.8}
+
+
+/*# sourceMappingURL=functions.css.map*/
