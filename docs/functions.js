@@ -320,6 +320,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var programs = [_appOne__WEBPACK_IMPORTED_MODULE_0__["randomInteger"], _appTwo__WEBPACK_IMPORTED_MODULE_1__["appTwo"], _appThree__WEBPACK_IMPORTED_MODULE_2__["ifEmpty"], _appFour__WEBPACK_IMPORTED_MODULE_3__["calcSalary"]];
 var elements = document.querySelectorAll('.main__element');
+console.log(elements);
 
 function eventApp() {
   var _loop = function _loop(i) {

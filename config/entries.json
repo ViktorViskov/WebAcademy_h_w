@@ -34,5 +34,14 @@
   ],
   "functions": [
     "./src/functions/functions.js"
+  ],
+  "trafick_lights": [
+    "./src/trafick_lights/trafick_lights.js"
+  ],
+  "wheel": [
+    "./src/wheel/wheel.js"
+  ],
+  "jscreated_element": [
+    "./src/jscreated_element/jscreated_element.js"
   ]
 }

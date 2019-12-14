@@ -5,6 +5,7 @@ import { calcSalary } from './appFour';
 const programs = [randomInteger, appTwo, ifEmpty, calcSalary];
 
 let elements = document.querySelectorAll('.main__element');
+console.log(elements);
 function eventApp() {
     for (let i = 0; i < elements.length; i++) {
         let element = elements[i];
