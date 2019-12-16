@@ -43,5 +43,8 @@
   ],
   "jscreated_element": [
     "./src/jscreated_element/jscreated_element.js"
+  ],
+  "new_year_tree": [
+    "./src/new_year_tree/new_year_tree.js"
   ]
 }
