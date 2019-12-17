@@ -1,0 +1,4 @@
+*{box-sizing:border-box}body{margin:0;padding:0;font-family:sans-serif}.container{width:800px;margin:10px auto}.comments{padding:35px;transition:all 1s;box-shadow:0 0 10px 1px lightgray}.comments__text{text-align:justify;margin:0;text-indent:1.5em;line-height:1.25em;font-size:1.4em}.comments__user-name{font-style:italic;font-weight:bold;font-size:1.2em}.comments__footer{display:flex;justify-content:space-between;margin-top:35px}
+
+
+/*# sourceMappingURL=button.css.map*/
