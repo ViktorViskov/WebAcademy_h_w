@@ -46,5 +46,8 @@
   ],
   "new_year_tree": [
     "./src/new_year_tree/new_year_tree.js"
+  ],
+  "button": [
+    "./src/button/button.js"
   ]
 }
