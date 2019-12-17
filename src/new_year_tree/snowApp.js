@@ -1,5 +1,13 @@
+let timer;
 export function startApp() {
-    setInterval(snowApp, 1000);
+
+    if (!timer) {
+        timer = setInterval(snowApp, 1000);
+    }
+    else {
+        timer = clearInterval(timer);
+    }
+
 }
 
 function snowApp() {
@@ -16,7 +24,6 @@ function addElement() {
     element.classList.add("container__snow");
     element.style.right = randomNumber(96) + 2 + "%";
     element.style.transitionDuration = randomNumber(5) + 5 + "s";
-    console.log("rotate" + "(" + (randomNumber(2000) - 1000 + "deg)"));
     place.appendChild(element);
 
 }
@@ -36,9 +43,8 @@ function removeElement() {
     let item = document.querySelector(".container__snow");
     item.remove();
 }
-function randomNumber(maxNum) {
-    let number = Math.floor(Math.random() * maxNum);
-    return number;
+export function randomNumber(maxNum) {
+    return Math.floor(Math.random() * maxNum);
 }
 
 
