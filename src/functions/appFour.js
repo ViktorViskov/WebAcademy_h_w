@@ -1,11 +1,6 @@
 import { isNumber } from "util";
 
-export function calcSalary() {
-    const obj = {
-        John: 400,
-        Jeka: 20000,
-        Oleg: "agfgsd",
-    }
+export function calcSalary(obj) {
     var totalSalary = 0;
 
     for (var item in obj) {
