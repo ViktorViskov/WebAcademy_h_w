@@ -1,3 +1,7 @@
 import './button.scss';
-import { createComment } from '../common/scripts/comment';
-createComment();
+import { createBtn } from '../common/scripts/button';
+import { createComment } from './comment';
+createBtn(document.querySelector('.nav-menu'), "Додати коментар", "btn", comment);
+function comment() {
+    createComment(document.querySelector(".container"));
+}

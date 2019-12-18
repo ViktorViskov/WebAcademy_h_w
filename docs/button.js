@@ -97,10 +97,16 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button.scss */ "./src/button/button.scss");
 /* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_button_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _common_scripts_comment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/scripts/comment */ "./src/common/scripts/comment.js");
+/* harmony import */ var _common_scripts_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/scripts/button */ "./src/common/scripts/button.js");
+/* harmony import */ var _comment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comment */ "./src/button/comment.js");
 
 
-Object(_common_scripts_comment__WEBPACK_IMPORTED_MODULE_1__["createComment"])();
+
+Object(_common_scripts_button__WEBPACK_IMPORTED_MODULE_1__["createBtn"])(document.querySelector('.nav-menu'), "Додати коментар", "btn", comment);
+
+function comment() {
+  Object(_comment__WEBPACK_IMPORTED_MODULE_2__["createComment"])(document.querySelector(".container"));
+}
 
 /***/ }),
 
@@ -115,25 +121,83 @@ Object(_common_scripts_comment__WEBPACK_IMPORTED_MODULE_1__["createComment"])();
 
 /***/ }),
 
-/***/ "./src/common/scripts/comment.js":
-/*!***************************************!*\
-  !*** ./src/common/scripts/comment.js ***!
-  \***************************************/
+/***/ "./src/button/comment.js":
+/*!*******************************!*\
+  !*** ./src/button/comment.js ***!
+  \*******************************/
 /*! exports provided: createComment */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
-function createComment() {
-  var comment = document.createElement('section');
-  comment.classList.add("comments");
-  var text = document.createElement("p");
-  text.classList.add('comments__text');
-  text.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi natus sapiente maxime    necessitatibus. Corporis dolore pariatur tempore accusamus voluptas, eum, beatae ipsum earum quidem molestiae quibusdam porro laboriosam officia necessitatibus?";
+/* harmony import */ var _common_scripts_button_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/scripts/button.js */ "./src/common/scripts/button.js");
+
+function createComment(place) {
+  var comment = mkEl("section", "comment");
+  var text = mkEl("p", "comment__text");
+  text.innerText = prompt("Уведіть текст коментара");
   comment.appendChild(text);
-  document.querySelector('.container').appendChild(comment);
+  var footer = mkEl("footer", "comment__footer");
+  comment.appendChild(footer);
+  var btn = Object(_common_scripts_button_js__WEBPACK_IMPORTED_MODULE_0__["createBtn"])(footer, "Видалити", "btn", removeComment);
+  var user = mkEl("section", "comment__user-name");
+  user.innerText = prompt("Уведіть ваше імя");
+  footer.appendChild(user);
+  commentValidation(text.innerText, user.innerText);
+
+  function removeComment() {
+    comment.remove();
+  }
+
+  function commentValidation(firstValue, secondValue) {
+    if (firstValue != "" && secondValue != "" && firstValue.length > 2 && secondValue.length > 2) {
+      place.appendChild(comment);
+    } else {
+      removeComment();
+    }
+  }
 }
+
+function mkEl(tagName, className) {
+  var element = document.createElement(tagName);
+  element.classList.add(className);
+  return element;
+}
+
+/***/ }),
+
+/***/ "./src/common/scripts/button.js":
+/*!**************************************!*\
+  !*** ./src/common/scripts/button.js ***!
+  \**************************************/
+/*! exports provided: createBtn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBtn", function() { return createBtn; });
+/* harmony import */ var _styles_button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/button.scss */ "./src/common/styles/button.scss");
+/* harmony import */ var _styles_button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_button_scss__WEBPACK_IMPORTED_MODULE_0__);
+
+function createBtn(place, text, style, btnFunc) {
+  var btn = document.createElement('button');
+  btn.textContent = text;
+  btn.classList.add(style);
+  btn.onclick = btnFunc;
+  place.appendChild(btn);
+}
+
+/***/ }),
+
+/***/ "./src/common/styles/button.scss":
+/*!***************************************!*\
+  !*** ./src/common/styles/button.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 

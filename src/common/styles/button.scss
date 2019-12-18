@@ -1,0 +1,10 @@
+.btn {
+    border-radius: 15px;
+    padding: 15px 25px;
+    border: none;
+    transition: background-color 1s cubic-bezier(0.23, 1, 0.320, 1);
+    outline: none;
+    &:hover {
+        background-color: lightgreen;
+    }
+}

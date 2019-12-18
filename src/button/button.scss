@@ -7,17 +7,19 @@ body {
     font-family: sans-serif;
 }
 .container {
-    width: 800px;    
+    width: 600px;    
     margin: 10px auto;
 }
-.comments {
+.comment {
     padding: 35px;
+    margin: 25px 0;
     transition: all 1s;
     box-shadow: 0 0 10px 1px lightgray;
+    border-radius: 0 50px;    
     &__text {
         text-align: justify;
+        white-space: normal;
         margin: 0;
-        text-indent: 1.5em;
         line-height: 1.25em;
         font-size: 1.4em;
     }
