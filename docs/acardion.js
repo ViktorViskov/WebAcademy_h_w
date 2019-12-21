@@ -144,8 +144,6 @@ Object(_common_scripts_button__WEBPACK_IMPORTED_MODULE_3__["createBtn"])(mount, 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "app", function() { return app; });
 /* harmony import */ var _event__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./event */ "./src/acardion/event.js");
-/* harmony import */ var _switch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./switch */ "./src/acardion/switch.js");
-
 
 function app(mountPoint, array) {
   var container = document.createElement('div');
@@ -220,6 +218,25 @@ function addEvent() {
 
 /***/ }),
 
+/***/ "./src/acardion/oneItemApp.js":
+/*!************************************!*\
+  !*** ./src/acardion/oneItemApp.js ***!
+  \************************************/
+/*! exports provided: oneItemApp */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "oneItemApp", function() { return oneItemApp; });
+function oneItemApp() {
+  var items = document.querySelectorAll('.content__active');
+  items.forEach(function (element) {
+    element.classList.remove('content__active');
+  });
+}
+
+/***/ }),
+
 /***/ "./src/acardion/switch.js":
 /*!********************************!*\
   !*** ./src/acardion/switch.js ***!
@@ -230,15 +247,11 @@ function addEvent() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shitchOnOff", function() { return shitchOnOff; });
+/* harmony import */ var _oneItemApp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./oneItemApp */ "./src/acardion/oneItemApp.js");
+
 function shitchOnOff(element) {
-  if (Boolean(!element.dataM)) {
-    element.classList.add('content__active');
-    console.log(element);
-    element.dataM = true;
-  } else {
-    element.classList.remove('content__active');
-    element.dataM = false;
-  }
+  Object(_oneItemApp__WEBPACK_IMPORTED_MODULE_0__["oneItemApp"])();
+  element.classList.add('content__active');
 }
 
 /***/ }),

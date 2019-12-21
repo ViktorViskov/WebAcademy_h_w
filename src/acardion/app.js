@@ -1,5 +1,4 @@
 import { addEvent } from './event';
-import { shitchOnOff } from './switch';
 export function app(mountPoint, array) {
     let container = document.createElement('div');
     container.classList.add('container');
