@@ -49,5 +49,8 @@
   ],
   "button": [
     "./src/button/button.js"
+  ],
+  "acardion": [
+    "./src/acardion/acardion.js"
   ]
 }

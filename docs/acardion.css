@@ -1,0 +1,6 @@
+.container{width:500px;border:1px solid #000;margin:100px auto;position:relative}.title{padding:15px;background-color:lightgray;margin:0}.content{background-color:yellow;padding:15px;margin:0;text-align:justify;display:none}.content__active{height:initial;display:block}
+
+.btn{border-radius:15px;padding:15px 25px;border:none;transition:background-color 1s cubic-bezier(0.23, 1, 0.32, 1);outline:none}.btn:hover{background-color:lightgreen}
+
+
+/*# sourceMappingURL=acardion.css.map*/

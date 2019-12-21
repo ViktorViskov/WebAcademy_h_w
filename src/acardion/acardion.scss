@@ -1,0 +1,26 @@
+.container {
+    width: 500px;
+    border: 1px solid #000;
+    margin: 100px auto;
+    position: relative;
+}
+.title {
+    padding: 15px;
+    background-color: lightgray;
+    margin: 0;
+}
+.content {
+    background-color: yellow;
+    padding: 15px;
+    margin: 0;
+    text-align: justify;
+    display: none;
+    
+    &__active {
+        height: initial;      
+        display: block;
+
+
+    }
+
+}
