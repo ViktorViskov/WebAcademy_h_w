@@ -9,16 +9,26 @@
     background-color: lightgray;
     margin: 0;
 }
+.section {
+    height: 52px;
+    transition: height 0.3s;
+    &__active {
+        height: auto
+    }
+}
 .content {
     background-color: yellow;
     padding: 15px;
     margin: 0;
     text-align: justify;
-    display: none;
+    transform-origin: top;
+    transition: all 0.2s;
+    transition-delay: 0.1s;
+    transform: scaleY(0);
     
     &__active {
-        height: initial;      
-        display: block;
+        height: initial;     
+        transform: scaleY(1);
 
 
     }

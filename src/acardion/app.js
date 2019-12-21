@@ -15,6 +15,7 @@ export function app(mountPoint, array) {
 
 function createSection(title, content) {
     const section = document.createElement('section');
+    section.classList.add('section');
     const titleElement = document.createElement('h3');
     titleElement.classList.add('title');
     const contentElement = document.createElement('p');

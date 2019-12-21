@@ -157,6 +157,7 @@ function app(mountPoint, array) {
 
 function createSection(title, content) {
   var section = document.createElement('section');
+  section.classList.add('section');
   var titleElement = document.createElement('h3');
   titleElement.classList.add('title');
   var contentElement = document.createElement('p');
@@ -191,9 +192,10 @@ function addEvent() {
   try {
     var _loop = function _loop() {
       var item = _step.value;
+      item.classList.add('section');
       var elem = item.querySelector('.content');
       item.addEventListener('click', function () {
-        Object(_switch__WEBPACK_IMPORTED_MODULE_0__["shitchOnOff"])(elem);
+        Object(_switch__WEBPACK_IMPORTED_MODULE_0__["shitchOnOff"])(item, elem);
       });
     };
 
@@ -229,10 +231,13 @@ function addEvent() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "oneItemApp", function() { return oneItemApp; });
 function oneItemApp() {
+  var section = document.querySelectorAll('.section');
   var items = document.querySelectorAll('.content__active');
   items.forEach(function (element) {
     element.classList.remove('content__active');
-  });
+  }, section.forEach(function (itemm) {
+    itemm.classList.remove('section__active');
+  }));
 }
 
 /***/ }),
@@ -249,8 +254,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shitchOnOff", function() { return shitchOnOff; });
 /* harmony import */ var _oneItemApp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./oneItemApp */ "./src/acardion/oneItemApp.js");
 
-function shitchOnOff(element) {
+function shitchOnOff(item, element) {
   Object(_oneItemApp__WEBPACK_IMPORTED_MODULE_0__["oneItemApp"])();
+  item.classList.add('section__active');
   element.classList.add('content__active');
 }
 
