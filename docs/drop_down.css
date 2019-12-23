@@ -1,0 +1,6 @@
+.container{margin:150px auto}.container__title{padding:15px;background-color:lightgreen}.container__list{list-style:none;padding:0;margin:0;border:1px solid #000;transition:all 0.5s;transform-origin:top;transform:scaleY(0)}.container__list_active{transform:scaleY(1)}.container__item{padding:15px;transition:background-color 0.5s}.container__item:nth-child(even){background-color:#ffc7c7}.container__item:hover{background-color:#fcf3c4;border:1px solid #000;padding:14px}
+
+.btn{border-radius:15px;padding:15px 25px;border:none;transition:background-color 1s cubic-bezier(0.23, 1, 0.32, 1);outline:none}.btn:hover{background-color:lightgreen}
+
+
+/*# sourceMappingURL=drop_down.css.map*/

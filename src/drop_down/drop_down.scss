@@ -1,0 +1,32 @@
+.container {
+    margin: 150px auto;
+    &__title {
+        padding: 15px;
+        background-color: lightgreen;
+    }
+    &__list {        
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #000;
+        transition: all 0.5s;
+        transform-origin: top;
+        transform: scaleY(0);
+        &_active {
+            transform: scaleY(1);
+        }
+    }
+    &__item {
+        padding: 15px;
+        transition: background-color 0.5s;
+        &:nth-child(even) {
+            background-color: rgb(255, 199, 199);
+        }
+        &:hover {
+            background-color: rgb(252, 243, 196);
+            border: 1px solid #000;
+            padding: 14px;
+        }
+    }
+}
+    

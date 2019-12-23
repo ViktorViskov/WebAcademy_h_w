@@ -52,5 +52,8 @@
   ],
   "acardion": [
     "./src/acardion/acardion.js"
+  ],
+  "drop_down": [
+    "./src/drop_down/drop_down.js"
   ]
 }

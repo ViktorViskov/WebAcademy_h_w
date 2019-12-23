@@ -10,6 +10,9 @@ import { find } from './appNine';
 import { filterRange } from './appTen';
 import { pow } from './appEleven';
 import { appTwelve } from './appTwelve';
+import { getWeekDay } from './appThertten';
+import { getLocaleDay } from './appFourteen';
+import { getDatoAgo } from './appFifteen';
 
 const obj = {
     John: 400,
@@ -18,8 +21,10 @@ const obj = {
 }
 const array = [1, 3, 345, 532465, 634567, 37674, 4674, 467467, 464213451, 1342];
 
-const programs = [randomInteger, appTwo, ifEmpty, calcSalary, appFive, appSix, appSeven, appEight, find, filterRange, pow, appTwelve];
+const programs = [randomInteger, appTwo, ifEmpty, calcSalary, appFive, appSix, appSeven, appEight, find, filterRange, pow, appTwelve, getWeekDay, getLocaleDay, getDatoAgo];
 
+const date = new Date();
+const dateAgo = new Date(2019, 11, 15);
 let elements = document.querySelectorAll('.main__element');
 function eventApp() {
     for (let i = 0; i < elements.length; i++) {
@@ -65,6 +70,15 @@ function startApp(element) {
     }
     else if (Number(elementNumber) === 11) {
         programs[Number(elementNumber) - 1](2, 3);
+    }
+    else if (Number(elementNumber) === 13) {
+        programs[Number(elementNumber) - 1](date);
+    }
+    else if (Number(elementNumber) === 14) {
+        programs[Number(elementNumber) - 1](date);
+    }
+    else if (Number(elementNumber) === 15) {
+        programs[Number(elementNumber) - 1](date, dateAgo);
     }
     else {
         programs[Number(elementNumber) - 1]();

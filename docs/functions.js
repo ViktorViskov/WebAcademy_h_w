@@ -236,6 +236,24 @@ function pow(x, n) {
 
 /***/ }),
 
+/***/ "./src/functions/appFifteen.js":
+/*!*************************************!*\
+  !*** ./src/functions/appFifteen.js ***!
+  \*************************************/
+/*! exports provided: getDatoAgo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDatoAgo", function() { return getDatoAgo; });
+function getDatoAgo(date, dateAgo) {
+  var result = date - dateAgo;
+  console.log(Math.floor(result / 1000 / 3600 / 24));
+  return Math.floor(result / 1000 / 3600 / 24);
+}
+
+/***/ }),
+
 /***/ "./src/functions/appFive.js":
 /*!**********************************!*\
   !*** ./src/functions/appFive.js ***!
@@ -291,6 +309,31 @@ function calcSalary(obj) {
 
   console.log(obj);
   console.log(totalSalary);
+}
+
+/***/ }),
+
+/***/ "./src/functions/appFourteen.js":
+/*!**************************************!*\
+  !*** ./src/functions/appFourteen.js ***!
+  \**************************************/
+/*! exports provided: getLocaleDay */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocaleDay", function() { return getLocaleDay; });
+function getLocaleDay(date) {
+  var weekDays = ["нд", "пн", "вт", "ср", "чт", "пт", "сб"];
+  console.log(weekDays[date.getDay()]);
+
+  if (date.getDay() === 0) {
+    console.log(date.getDay() + 7);
+    return weekDays[date.getDay() + 7];
+  } else {
+    console.log(date.getDay());
+    return weekDays[date.getDay()];
+  }
 }
 
 /***/ }),
@@ -447,6 +490,24 @@ function filterRange(arr, a, b) {
 
 /***/ }),
 
+/***/ "./src/functions/appThertten.js":
+/*!**************************************!*\
+  !*** ./src/functions/appThertten.js ***!
+  \**************************************/
+/*! exports provided: getWeekDay */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getWeekDay", function() { return getWeekDay; });
+function getWeekDay(date) {
+  var weekDays = ["нд", "пн", "вт", "ср", "чт", "пт", "сб"];
+  console.log(weekDays[date.getDay()]);
+  return weekDays[date.getDay()];
+}
+
+/***/ }),
+
 /***/ "./src/functions/appThree.js":
 /*!***********************************!*\
   !*** ./src/functions/appThree.js ***!
@@ -483,14 +544,8 @@ function ifEmpty(obj) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appTwelve", function() { return appTwelve; });
 function appTwelve() {
-  var date = {
-    day: 20,
-    month: 2,
-    year: 2012,
-    hour: 3,
-    minut: 12
-  };
-  console.log(Date(2012, 0, 3));
+  var date = new Date(2012, 1, 20, 3, 12);
+  console.log(date);
   return date;
 }
 
@@ -570,6 +625,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _appTen__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./appTen */ "./src/functions/appTen.js");
 /* harmony import */ var _appEleven__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./appEleven */ "./src/functions/appEleven.js");
 /* harmony import */ var _appTwelve__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./appTwelve */ "./src/functions/appTwelve.js");
+/* harmony import */ var _appThertten__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./appThertten */ "./src/functions/appThertten.js");
+/* harmony import */ var _appFourteen__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./appFourteen */ "./src/functions/appFourteen.js");
+/* harmony import */ var _appFifteen__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./appFifteen */ "./src/functions/appFifteen.js");
+
+
+
 
 
 
@@ -588,7 +649,9 @@ var obj = {
   test: "agfgsd"
 };
 var array = [1, 3, 345, 532465, 634567, 37674, 4674, 467467, 464213451, 1342];
-var programs = [_appOne__WEBPACK_IMPORTED_MODULE_0__["randomInteger"], _appTwo__WEBPACK_IMPORTED_MODULE_1__["appTwo"], _appThree__WEBPACK_IMPORTED_MODULE_2__["ifEmpty"], _appFour__WEBPACK_IMPORTED_MODULE_3__["calcSalary"], _appFive__WEBPACK_IMPORTED_MODULE_4__["appFive"], _appSix__WEBPACK_IMPORTED_MODULE_5__["appSix"], _appSeven__WEBPACK_IMPORTED_MODULE_6__["appSeven"], _appEight__WEBPACK_IMPORTED_MODULE_7__["appEight"], _appNine__WEBPACK_IMPORTED_MODULE_8__["find"], _appTen__WEBPACK_IMPORTED_MODULE_9__["filterRange"], _appEleven__WEBPACK_IMPORTED_MODULE_10__["pow"], _appTwelve__WEBPACK_IMPORTED_MODULE_11__["appTwelve"]];
+var programs = [_appOne__WEBPACK_IMPORTED_MODULE_0__["randomInteger"], _appTwo__WEBPACK_IMPORTED_MODULE_1__["appTwo"], _appThree__WEBPACK_IMPORTED_MODULE_2__["ifEmpty"], _appFour__WEBPACK_IMPORTED_MODULE_3__["calcSalary"], _appFive__WEBPACK_IMPORTED_MODULE_4__["appFive"], _appSix__WEBPACK_IMPORTED_MODULE_5__["appSix"], _appSeven__WEBPACK_IMPORTED_MODULE_6__["appSeven"], _appEight__WEBPACK_IMPORTED_MODULE_7__["appEight"], _appNine__WEBPACK_IMPORTED_MODULE_8__["find"], _appTen__WEBPACK_IMPORTED_MODULE_9__["filterRange"], _appEleven__WEBPACK_IMPORTED_MODULE_10__["pow"], _appTwelve__WEBPACK_IMPORTED_MODULE_11__["appTwelve"], _appThertten__WEBPACK_IMPORTED_MODULE_12__["getWeekDay"], _appFourteen__WEBPACK_IMPORTED_MODULE_13__["getLocaleDay"], _appFifteen__WEBPACK_IMPORTED_MODULE_14__["getDatoAgo"]];
+var date = new Date();
+var dateAgo = new Date(2019, 11, 15);
 var elements = document.querySelectorAll('.main__element');
 
 function eventApp() {
@@ -634,6 +697,12 @@ function startApp(element) {
     programs[Number(elementNumber) - 1](array, 1, 10000);
   } else if (Number(elementNumber) === 11) {
     programs[Number(elementNumber) - 1](2, 3);
+  } else if (Number(elementNumber) === 13) {
+    programs[Number(elementNumber) - 1](date);
+  } else if (Number(elementNumber) === 14) {
+    programs[Number(elementNumber) - 1](date);
+  } else if (Number(elementNumber) === 15) {
+    programs[Number(elementNumber) - 1](date, dateAgo);
   } else {
     programs[Number(elementNumber) - 1]();
   }
