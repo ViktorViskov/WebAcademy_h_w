@@ -86,6 +86,26 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/firstclass/class.js":
+/*!*********************************!*\
+  !*** ./src/firstclass/class.js ***!
+  \*********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _lamp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lamp */ "./src/firstclass/lamp.js");
+
+var mp = document.querySelector(".container");
+var items = new _lamp__WEBPACK_IMPORTED_MODULE_0__["garland"](mp, 50);
+items.createLamps();
+setInterval(function () {
+  items.switcher();
+}, 100);
+
+/***/ }),
+
 /***/ "./src/firstclass/firstclass.js":
 /*!**************************************!*\
   !*** ./src/firstclass/firstclass.js ***!
@@ -97,6 +117,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _firstclass_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firstclass.scss */ "./src/firstclass/firstclass.scss");
 /* harmony import */ var _firstclass_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firstclass_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _class__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./class */ "./src/firstclass/class.js");
+
 
 
 /***/ }),
@@ -109,6 +131,67 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/firstclass/lamp.js":
+/*!********************************!*\
+  !*** ./src/firstclass/lamp.js ***!
+  \********************************/
+/*! exports provided: garland */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "garland", function() { return garland; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var garland =
+/*#__PURE__*/
+function () {
+  function garland(mp, account) {
+    _classCallCheck(this, garland);
+
+    this.mp = mp;
+    this.account = account;
+  }
+
+  _createClass(garland, [{
+    key: "createLamps",
+    value: function createLamps() {
+      this.lamps = [];
+
+      for (var i = 0; i < this.account; i++) {
+        this.lamp = document.createElement("div");
+        this.lamp.classList.add("lamp");
+        this.lamp.style.backgroundColor = this.randomColor();
+        this.mp.appendChild(this.lamp);
+        this.lamps.push(this.lamp);
+      }
+    }
+  }, {
+    key: "randomColor",
+    value: function randomColor() {
+      return "rgb(" + this.randomNum(255) + "," + this.randomNum(255) + "," + this.randomNum(255) + ")";
+    }
+  }, {
+    key: "randomNum",
+    value: function randomNum(num) {
+      return Math.floor(Math.random() * num);
+    }
+  }, {
+    key: "switcher",
+    value: function switcher() {
+      this.lamps[this.randomNum(this.account)].style.backgroundColor = this.randomColor();
+    }
+  }]);
+
+  return garland;
+}();
 
 /***/ }),
 
