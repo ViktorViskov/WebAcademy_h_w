@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -208,7 +208,7 @@ Object(_app__WEBPACK_IMPORTED_MODULE_1__["toggle"])();
 
 /***/ }),
 
-/***/ 12:
+/***/ 11:
 /*!****************************************************!*\
   !*** multi ./src/trafick_lights/trafick_lights.js ***!
   \****************************************************/

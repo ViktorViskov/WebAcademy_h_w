@@ -2,82 +2,51 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <script src="http://localhost:35729/livereload.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://localhost:35729/livereload.js"></script>
+  <title key='title'></title>
 </head>
 
 <body>
-    <main class="main-page">
-        <nav class="nav-page"></nav>
-        <nav class="menu-page">
-            <nav class="menu-page__container">
-                <div></div>
-                <ul class="menu-page__list">
-                    <a class="menu-page__element-link" href="#">
-                        <li class="menu-page__element">
-                            <span class="menu-page__title">living room</span>
-                            <img src="./assets/livingroom.png" alt="" class="menu-page__img">
-                        </li>
-                    </a>
-                    <a href="#" class="menu-page__element-link">
-                        <li class="menu-page__element">
-                            <span class="menu-page__title">office</span>
-                            <img src="./assets/office.png" alt="" class="menu-page__img">
-                        </li>
-                    </a>
-                    <li class="menu-page__element">
-                        <span class="menu-page__title">for kids</span>
-                        <img src="./assets/for kids.png" alt="" class="menu-page__img">
-                    </li>
-                    <li class="menu-page__element">
-                        <span class="menu-page__title">kitchen</span>
-                        <img src="./assets/kitchen.png" alt="" class="menu-page__img">
-                    </li>
-                    <li class="menu-page__element">
-                        <span class="menu-page__title">accesories</span>
-                        <img src="./assets/accesories.png" alt="" class="menu-page__img">
-                    </li>
-
-                </ul>
-                <a href="#" class="menu-page__link">show all categories</a>
-            </nav>
-        </nav>
-        <button class="menu-btn " onclick="app()">
-            <div class="menu-btn__container">
-                <div class="menu-btn__element"></div>
-                <div class="menu-btn__element"></div>
-                <div class="menu-btn__element"></div>
-            </div>
-        </button>
-        <header class="page-header">
-            <h2 class="page-header__background-title">newest</h2>
-            <div class="page-header__container">
-                <h2 class="page-header__title">olios</h2>
-                <h3 class="page-header__title page-header__title_smaller">NEWEST FURNITURE SHOP TEMPLATE</h3>
-                <button class="page-header__btn">view more</button>
-            </div>
-        </header>
-    </main>
-    <script>
-        function app() {
-            let element = document.querySelector('.menu-btn');
-            let elementtwo = document.querySelector('.menu-btn_active');
-            let elementtre = document.querySelector('.menu-page');
-
-            if (elementtwo === null) {
-                element.classList.add('menu-btn_active');
-                elementtre.classList.add('menu-page_active');
-            }
-            else {
-                element.classList.remove('menu-btn_active');
-                elementtre.classList.remove('menu-page_active');
-            }
-        }
-    </script>
+  <header class="header">
+    <div class="header__box">
+      <div class="header__logo">
+        <img src="./assets/LOGO.png" alt="" class="header__img">
+      </div>
+      <nav class="header__menu">
+        <ul class="header__container">
+          <li class="header__item"><a href="" class="header__link header__link_active">Home</a></li>
+          <li class="header__item"><a href="" class="header__link">About</a></li>
+          <li class="header__item"><a href="" class="header__link">Services</a></li>
+          <li class="header__item"><a href="" class="header__link">Portfolio</a></li>
+          <li class="header__item"><a href="" class="header__link">Shop</a></li>
+          <li class="header__item"><a href="" class="header__link">Contact</a></li>
+          <li class="header__item"><a href="" class="header__link">Pages</a></li>
+        </ul>
+      </nav>
+      <div class="header__networks">
+        <ul class="header__container">
+          <li class="header__item header__item_icons"><a href="" class="header__link"><img src="./assets/fb icon.png"
+                alt="" class="header__img"></a></li>
+          <li class="header__item header__item_icons"><a href="" class="header__link"><img src="./assets/tw icon.png"
+                alt="" class="header__img"></a></li>
+          <li class="header__item header__item_icons"><a href="" class="header__link"><img src="./assets/g+ icon.png"
+                alt="" class="header__img"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header__slider">
+      <div class="header__container header__container_column">
+        <h2 class="header__title">the best services</h2>
+        <p class="header__content">We provide the best services in the world.We provide the best services in the
+          world.We provide the best services in the world.</p>
+        <button class="header__button">hire us</button>
+      </div>
+    </div>
+  </header>
 </body>
 
 </html>

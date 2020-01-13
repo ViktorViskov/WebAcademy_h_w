@@ -29,9 +29,6 @@
   "game": [
     "./src/game/game.js"
   ],
-  "landing_1": [
-    "./src/landing_1/landing_1.js"
-  ],
   "functions": [
     "./src/functions/functions.js"
   ],
@@ -55,5 +52,11 @@
   ],
   "drop_down": [
     "./src/drop_down/drop_down.js"
+  ],
+  "landing_1": [
+    "./src/landing_1/landing_1.js"
+  ],
+  "firstclass": [
+    "./src/firstclass/firstclass.js"
   ]
 }

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -141,7 +141,7 @@ Object(_app__WEBPACK_IMPORTED_MODULE_1__["app"])();
 
 /***/ }),
 
-/***/ 14:
+/***/ 13:
 /*!**********************************************************!*\
   !*** multi ./src/jscreated_element/jscreated_element.js ***!
   \**********************************************************/

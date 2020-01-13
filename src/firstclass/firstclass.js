@@ -1,0 +1,1 @@
+import './firstclass.scss';

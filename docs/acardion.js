@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -296,7 +296,7 @@ function createBtn(place, text, style, btnFunc) {
 
 /***/ }),
 
-/***/ 17:
+/***/ 16:
 /*!****************************************!*\
   !*** multi ./src/acardion/acardion.js ***!
   \****************************************/

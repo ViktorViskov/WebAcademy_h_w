@@ -81,30 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/landing_1/landing_1.js":
-/*!************************************!*\
-  !*** ./src/landing_1/landing_1.js ***!
-  \************************************/
+/***/ "./src/firstclass/firstclass.js":
+/*!**************************************!*\
+  !*** ./src/firstclass/firstclass.js ***!
+  \**************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _landing_1_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./landing_1.scss */ "./src/landing_1/landing_1.scss");
-/* harmony import */ var _landing_1_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_landing_1_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _firstclass_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firstclass.scss */ "./src/firstclass/firstclass.scss");
+/* harmony import */ var _firstclass_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firstclass_scss__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
 
-/***/ "./src/landing_1/landing_1.scss":
-/*!**************************************!*\
-  !*** ./src/landing_1/landing_1.scss ***!
-  \**************************************/
+/***/ "./src/firstclass/firstclass.scss":
+/*!****************************************!*\
+  !*** ./src/firstclass/firstclass.scss ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -112,17 +112,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 18:
-/*!******************************************!*\
-  !*** multi ./src/landing_1/landing_1.js ***!
-  \******************************************/
+/***/ 19:
+/*!********************************************!*\
+  !*** multi ./src/firstclass/firstclass.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./src/landing_1/landing_1.js */"./src/landing_1/landing_1.js");
+module.exports = __webpack_require__(/*! ./src/firstclass/firstclass.js */"./src/firstclass/firstclass.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=landing_1.js.map
+//# sourceMappingURL=firstclass.js.map

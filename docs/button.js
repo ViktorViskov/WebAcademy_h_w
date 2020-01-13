@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -201,7 +201,7 @@ function createBtn(place, text, style, btnFunc) {
 
 /***/ }),
 
-/***/ 16:
+/***/ 15:
 /*!************************************!*\
   !*** multi ./src/button/button.js ***!
   \************************************/
