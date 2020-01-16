@@ -61,5 +61,8 @@
   ],
   "clock": [
     "./src/clock/clock.js"
+  ],
+  "asyns": [
+    "./src/asyns/asyns.js"
   ]
 }
