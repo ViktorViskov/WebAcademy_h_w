@@ -81,52 +81,115 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 19);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/firstclass/class.js":
-/*!*********************************!*\
-  !*** ./src/firstclass/class.js ***!
-  \*********************************/
+/***/ "./src/clock/app.js":
+/*!**************************!*\
+  !*** ./src/clock/app.js ***!
+  \**************************/
+/*! exports provided: clock */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clock", function() { return clock; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var clock =
+/*#__PURE__*/
+function () {
+  function clock() {
+    _classCallCheck(this, clock);
+  }
+
+  _createClass(clock, [{
+    key: "createDate",
+    value: function createDate() {
+      this.time = new Date();
+      this.hours = this.time.getHours();
+      this.minutes = this.time.getMinutes();
+      this.seconds = this.time.getSeconds();
+      this.shortTime = "".concat(this.hours, ":").concat(this.minutes, ":").concat(this.seconds);
+    }
+  }, {
+    key: "changeTime",
+    value: function changeTime() {
+      this.createDate();
+      this.container.textContent = this.shortTime;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var mp = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector("body");
+      mp.style.backgroundColor = this.randomColor();
+      this.container = document.createElement("span");
+      this.container.textContent = this.shortTime;
+      this.container.classList.add("time");
+      mp.appendChild(this.container);
+    }
+  }, {
+    key: "randomNumber",
+    value: function randomNumber(num) {
+      return Math.floor(Math.random() * (num + 1));
+    }
+  }, {
+    key: "randomColor",
+    value: function randomColor() {
+      return "rgb(".concat(this.randomNumber(255), ",").concat(this.randomNumber(255), ",").concat(this.randomNumber(255), ")");
+    }
+  }, {
+    key: "startClock",
+    value: function startClock() {
+      var _this = this;
+
+      this.createDate();
+      this.render();
+      this.timeId = setInterval(function () {
+        _this.changeTime();
+      }, 1000);
+    }
+  }, {
+    key: "stopClock",
+    value: function stopClock() {
+      clearInterval(this.timeId);
+    }
+  }]);
+
+  return clock;
+}();
+
+/***/ }),
+
+/***/ "./src/clock/clock.js":
+/*!****************************!*\
+  !*** ./src/clock/clock.js ***!
+  \****************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lamp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lamp */ "./src/firstclass/lamp.js");
-
-var mp = document.querySelector(".container");
-var items = new _lamp__WEBPACK_IMPORTED_MODULE_0__["garland"](mp, 50);
-items.createLamps();
-setInterval(function () {
-  items.switcher();
-}, 30);
-
-/***/ }),
-
-/***/ "./src/firstclass/firstclass.js":
-/*!**************************************!*\
-  !*** ./src/firstclass/firstclass.js ***!
-  \**************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _firstclass_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firstclass.scss */ "./src/firstclass/firstclass.scss");
-/* harmony import */ var _firstclass_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firstclass_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _class__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./class */ "./src/firstclass/class.js");
+/* harmony import */ var _clock_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./clock.scss */ "./src/clock/clock.scss");
+/* harmony import */ var _clock_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_clock_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app */ "./src/clock/app.js");
 
 
+var currentTime = new _app__WEBPACK_IMPORTED_MODULE_1__["clock"]();
+currentTime.startClock();
 
 /***/ }),
 
-/***/ "./src/firstclass/firstclass.scss":
-/*!****************************************!*\
-  !*** ./src/firstclass/firstclass.scss ***!
-  \****************************************/
+/***/ "./src/clock/clock.scss":
+/*!******************************!*\
+  !*** ./src/clock/clock.scss ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -134,79 +197,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/firstclass/lamp.js":
-/*!********************************!*\
-  !*** ./src/firstclass/lamp.js ***!
-  \********************************/
-/*! exports provided: garland */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "garland", function() { return garland; });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var garland =
-/*#__PURE__*/
-function () {
-  function garland(mp, account) {
-    _classCallCheck(this, garland);
-
-    this.mp = mp;
-    this.account = account;
-  }
-
-  _createClass(garland, [{
-    key: "createLamps",
-    value: function createLamps() {
-      this.lamps = [];
-
-      for (var i = 0; i < this.account; i++) {
-        this.lamp = document.createElement("div");
-        this.lamp.classList.add("lamp");
-        this.lamp.style.backgroundColor = this.randomColor();
-        this.mp.appendChild(this.lamp);
-        this.lamps.push(this.lamp);
-      }
-    }
-  }, {
-    key: "randomColor",
-    value: function randomColor() {
-      return "rgb(" + this.randomNum(255) + "," + this.randomNum(255) + "," + this.randomNum(255) + ")";
-    }
-  }, {
-    key: "randomNum",
-    value: function randomNum(num) {
-      return Math.floor(Math.random() * num);
-    }
-  }, {
-    key: "switcher",
-    value: function switcher() {
-      var ett = this.lamps[this.randomNum(this.account)].style.backgroundColor = this.randomColor();
-      setTimeout(this.lamps[this.randomNum(this.account)].style.backgroundColor = "black", 200);
-    }
-  }]);
-
-  return garland;
-}();
-
-/***/ }),
-
-/***/ 19:
-/*!********************************************!*\
-  !*** multi ./src/firstclass/firstclass.js ***!
-  \********************************************/
+/***/ 20:
+/*!**********************************!*\
+  !*** multi ./src/clock/clock.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./src/firstclass/firstclass.js */"./src/firstclass/firstclass.js");
+module.exports = __webpack_require__(/*! ./src/clock/clock.js */"./src/clock/clock.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=firstclass.js.map
+//# sourceMappingURL=clock.js.map

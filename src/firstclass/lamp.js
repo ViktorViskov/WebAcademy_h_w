@@ -24,7 +24,10 @@ export class garland {
         return Math.floor(Math.random() * num);
     }
     switcher() {
-        this.lamps[this.randomNum(this.account)].style.backgroundColor = this.randomColor();
+        let ett = this.lamps[this.randomNum(this.account)].style.backgroundColor = this.randomColor();
+        setTimeout(this.lamps[this.randomNum(this.account)].style.backgroundColor = "black", 200)
+
     }
+
 
 }

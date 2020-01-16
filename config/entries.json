@@ -58,5 +58,8 @@
   ],
   "firstclass": [
     "./src/firstclass/firstclass.js"
+  ],
+  "clock": [
+    "./src/clock/clock.js"
   ]
 }
