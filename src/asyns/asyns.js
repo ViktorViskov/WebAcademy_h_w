@@ -1,6 +1,6 @@
 import './asyns.scss';
-import { renderPage } from 'app.js';
-db = "http://localhost:3000";
+import { request } from './app';
+import { renderPage } from './renderPage';
 
-
-const page = new renderPage(mp, db);
+const page = new request(document.querySelector("body"), "http://localhost:3000/ads");
+page.requstXhr();

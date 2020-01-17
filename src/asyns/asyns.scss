@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin: auto;
+    box-shadow: 5px 1px 35px darkblue;
+    padding: 50px;
+    width: 700px;    
+    margin-bottom: 50px;
+    &__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }    
+    &__image {
+        flex-grow: 0;
+    }
+}
