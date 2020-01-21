@@ -1,0 +1,76 @@
+@import 'mixins.scss';
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    @include resetIndents;
+    font-family: sans-serif;
+    font-size: 16px;
+    height: 100vh;
+}
+
+.container {
+    @include resetIndents;
+    height: 100%;
+    list-style: none;
+    display: flex;        
+    flex-wrap: wrap;
+    &__item {
+        background-image: url('./assets/vehicles-on-road-beside-sea-2787267\ \(1\).jpg');
+        background-size: cover;
+        border: 1px solid #000;
+        flex-grow: 6;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+}
+
+.header {
+    
+    &__title {
+        @include resetIndents;
+        
+    }
+}
+.main {
+    
+    &__temperatur {
+        @include resetIndents;
+    }
+    &__icon {
+        width: 35%;
+        flex-shrink: 0;
+    }   
+}
+.footer {
+    background-color: rgba(43, 43, 43, 0.692);
+    padding: 5px 0;
+    &__list {        
+        display: flex;
+        justify-content: space-evenly;
+        @include resetIndents;
+        list-style: none;  
+    }
+    &__item {
+        padding: 5px;
+        color: white;
+        flex-grow: 0;
+    } 
+}
+
+.content {
+    &__city {
+        font-size: 50px;
+    }
+    &__temperatur {
+        font-size: 35px;
+        margin-right: 20px ;
+    }
+    &__icon {
+        height:  50px;
+    }
+}

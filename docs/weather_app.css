@@ -1,0 +1,4 @@
+*{box-sizing:border-box}body{margin:0;padding:0;font-family:sans-serif;font-size:16px;height:100vh}.container{margin:0;padding:0;height:100%;list-style:none;display:flex;flex-wrap:wrap}.container__item{background-image:url("./assets/images/vehicles-on-road-beside-sea-2787267 (1).jpg");background-size:cover;border:1px solid #000;flex-grow:6;display:flex;flex-direction:column;justify-content:space-between;text-align:center}.header__title{margin:0;padding:0}.main__temperatur{margin:0;padding:0}.main__icon{width:35%;flex-shrink:0}.footer{background-color:rgba(43,43,43,0.692);padding:5px 0}.footer__list{display:flex;justify-content:space-evenly;margin:0;padding:0;list-style:none}.footer__item{padding:5px;color:white;flex-grow:0}.content__city{font-size:50px}.content__temperatur{font-size:35px;margin-right:20px}.content__icon{height:50px}
+
+
+/*# sourceMappingURL=weather_app.css.map*/

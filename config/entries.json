@@ -64,5 +64,8 @@
   ],
   "asyns": [
     "./src/asyns/asyns.js"
+  ],
+  "weather_app": [
+    "./src/weather_app/weather_app.js"
   ]
 }
