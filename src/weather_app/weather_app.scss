@@ -16,61 +16,46 @@ body {
     height: 100%;
     list-style: none;
     display: flex;        
+    flex-direction: column;
     flex-wrap: wrap;
-    &__item {
-        background-image: url('./assets/vehicles-on-road-beside-sea-2787267\ \(1\).jpg');
+    &__item {  
+        min-width: 200px;         
+        background-image: url('https://source.unsplash.com/random?ukraine');
         background-size: cover;
-        border: 1px solid #000;
-        flex-grow: 6;
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: center;
         text-align: center;
+        cursor: pointer;
+        /* filter: brightness(0.3); */
     }
-}
-
-.header {
-    
     &__title {
-        @include resetIndents;
-        
+        margin: 25px 15px;
+        font-size: 50px;
+        color: white;
+        text-shadow: 0px 0px 15px black;
     }
-}
-.main {
-    
-    &__temperatur {
-        @include resetIndents;
+    &__temp {
+        font-size: 30px;
+        color: white;
+        text-shadow: 0px 0px 15px black;        
     }
+    &__block {
+        position: fixed;
+        width: 85vw;
+        height: 85vh;
+        background-color: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+    } 
     &__icon {
-        width: 35%;
-        flex-shrink: 0;
+        background-color: rgba(255, 255, 255, 0.7);
+        box-shadow:  0px 0px 10px 10px rgba(255, 255, 255, 0.7);
+        border-radius: 25px;
+        margin-bottom: 25px;        
     }   
 }
-.footer {
-    background-color: rgba(43, 43, 43, 0.692);
-    padding: 5px 0;
-    &__list {        
-        display: flex;
-        justify-content: space-evenly;
-        @include resetIndents;
-        list-style: none;  
-    }
-    &__item {
-        padding: 5px;
-        color: white;
-        flex-grow: 0;
-    } 
-}
 
-.content {
-    &__city {
-        font-size: 50px;
-    }
-    &__temperatur {
-        font-size: 35px;
-        margin-right: 20px ;
-    }
-    &__icon {
-        height:  50px;
-    }
-}
