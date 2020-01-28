@@ -86,190 +86,97 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/weather_app/createLink.js":
-/*!***************************************!*\
-  !*** ./src/weather_app/createLink.js ***!
-  \***************************************/
-/*! exports provided: createLink */
+/***/ "./src/weather_app/oop.js":
+/*!********************************!*\
+  !*** ./src/weather_app/oop.js ***!
+  \********************************/
+/*! exports provided: city */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLink", function() { return createLink; });
-function createLink(obj, isForWeek) {
-  if (!isForWeek) {
-    return "https://api.openweathermap.org/data/2.5/weather?q=".concat(obj.city, "&appid=").concat(obj.key, "&lang=").concat(obj.lang, "&units=").concat(obj.type);
-  } else {
-    return "https://api.openweathermap.org/data/2.5/forecast?q=".concat(obj.city, "&appid=").concat(obj.key, "&lang=").concat(obj.lang, "&units=").concat(obj.type);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "city", function() { return city; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var city =
+/*#__PURE__*/
+function () {
+  function city(cityName) {
+    _classCallCheck(this, city);
+
+    this.cityName = cityName;
+    this.apiCurrentWeather = "https://api.openweathermap.org/data/2.5/weather?q=".concat(this.cityName, "&appid=005de91e5c99d24051d0ce13216877cb&lang=ua&units=metric");
+    this.apiWeekWeather = "https://api.openweathermap.org/data/2.5/forecast?q=".concat(this.cityName, "&appid=005de91e5c99d24051d0ce13216877cb&lang=ua&units=metric");
+    this.request(this.apiCurrentWeather);
   }
-}
 
-/***/ }),
+  _createClass(city, [{
+    key: "request",
+    value: function request(url) {
+      var _this = this;
 
-/***/ "./src/weather_app/data.js":
-/*!*********************************!*\
-  !*** ./src/weather_app/data.js ***!
-  \*********************************/
-/*! exports provided: dataWeather */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+      this.xhr = new XMLHttpRequest();
+      this.xhr.open("GET", url);
+      this.xhr.send();
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dataWeather", function() { return dataWeather; });
-var dataWeather = {
-  "Kiev": {
-    "city": "Kiev",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  },
-  "Copenhagen": {
-    "city": "Copenhagen",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  },
-  "kair": {
-    "city": "kair",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  },
-  "Thisted": {
-    "city": "Thisted",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  },
-  "Berlin": {
-    "city": "Berlin",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  },
-  "brasilia": {
-    "city": "brasilia",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  },
-  "Mexiko": {
-    "city": "Mexiko",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  },
-  "Tokio": {
-    "city": "Tokio",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  },
-  "Pekin": {
-    "city": "Pekin",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  },
-  "honolulu": {
-    "city": "honolulu",
-    "key": "005de91e5c99d24051d0ce13216877cb",
-    "lang": "ua",
-    "type": "metric"
-  }
-};
+      this.xhr.onload = function () {
+        _this.xhr.data = JSON.parse(_this.xhr.response);
 
-/***/ }),
+        _this.createPage(_this.xhr.data);
+      };
+    }
+  }, {
+    key: "createTag",
+    value: function createTag(name, className) {
+      var element = document.createElement(name);
+      element.classList.add(className);
+      return element;
+    }
+  }, {
+    key: "createPage",
+    value: function createPage(data) {
+      var mp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.querySelector(".container");
+      var containerItem = this.createTag("li", "container__item");
+      containerItem.style.backgroundImage = "url('https://source.unsplash.com/random?".concat(data.name, ",landscape')");
+      containerItem.title = data.weather[0].description;
+      containerItem.addEventListener('click', function () {
+        var dadat = new Date(data.sys.sunrise * 1000);
+        console.log(dadat);
+      });
+      var containerTitle = this.createTag("h1", "container__title");
+      containerTitle.textContent = data.name;
+      containerItem.appendChild(containerTitle);
+      var containerTemp = this.createTag("h2", "container__temp");
+      containerTemp.textContent = Math.round(data.main.temp);
+      containerItem.appendChild(containerTemp);
+      var containerIcon = this.createTag("img", "container__icon");
+      containerIcon.src = "http://openweathermap.org/img/wn/".concat(data.weather[0].icon, "@2x.png");
+      containerItem.appendChild(containerIcon);
+      mp.prepend(containerItem);
+    }
+  }, {
+    key: "createButton",
+    value: function createButton() {
+      var mp = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector(".container");
+      var button = this.createTag("li", "container__item");
+      button.classList.add("container__item_button");
+      var buttonInput = this.createTag("input", "container__input");
+      buttonInput.placeholder = "Введіть назву міста";
+      buttonInput.type = "text";
+      button.appendChild(buttonInput);
+      var buttonItem = this.createTag("h1", "container__title");
+      buttonItem.textContent = "Додати місто";
+      button.appendChild(buttonItem);
+      mp.appendChild(button);
+    }
+  }]);
 
-/***/ "./src/weather_app/pageRender.js":
-/*!***************************************!*\
-  !*** ./src/weather_app/pageRender.js ***!
-  \***************************************/
-/*! exports provided: createPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPage", function() { return createPage; });
-function createPage(data) {
-  var mp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.querySelector(".container");
-  var containerItem = createTag("li", "container__item");
-  containerItem.style.backgroundImage = "url('https://source.unsplash.com/random?".concat(data.name, ",landscape')");
-  containerItem.title = data.weather[0].description;
-  containerItem.addEventListener('click', function () {
-    var dadat = new Date(data.sys.sunrise * 1000);
-    console.log(dadat);
-  });
-  var containerTitle = createTag("h1", "container__title");
-  containerTitle.textContent = data.name;
-  containerItem.appendChild(containerTitle);
-  var containerTemp = createTag("h2", "container__temp");
-  containerTemp.textContent = Math.round(data.main.temp);
-  containerItem.appendChild(containerTemp);
-  var containerIcon = createTag("img", "container__icon");
-  containerIcon.src = "http://openweathermap.org/img/wn/".concat(data.weather[0].icon, "@2x.png");
-  containerItem.appendChild(containerIcon);
-  mp.appendChild(containerItem);
-}
-
-function createTag(name, className) {
-  var element = document.createElement(name);
-  element.classList.add(className);
-  return element;
-}
-
-/***/ }),
-
-/***/ "./src/weather_app/request.js":
-/*!************************************!*\
-  !*** ./src/weather_app/request.js ***!
-  \************************************/
-/*! exports provided: request */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "request", function() { return request; });
-/* harmony import */ var _pageRender__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pageRender */ "./src/weather_app/pageRender.js");
-
-function request(url, weekUrl) {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url);
-  xhr.send();
-
-  xhr.onload = function () {
-    xhr.data = JSON.parse(xhr.response);
-    console.log(xhr.data);
-    Object(_pageRender__WEBPACK_IMPORTED_MODULE_0__["createPage"])(xhr.data);
-  };
-}
-
-/***/ }),
-
-/***/ "./src/weather_app/startApp.js":
-/*!*************************************!*\
-  !*** ./src/weather_app/startApp.js ***!
-  \*************************************/
-/*! exports provided: startApp */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startApp", function() { return startApp; });
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ "./src/weather_app/data.js");
-/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./request */ "./src/weather_app/request.js");
-/* harmony import */ var _createLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createLink */ "./src/weather_app/createLink.js");
-
-
-
-function startApp() {
-  for (var elemt in _data__WEBPACK_IMPORTED_MODULE_0__["dataWeather"]) {
-    var item = _data__WEBPACK_IMPORTED_MODULE_0__["dataWeather"][elemt];
-    item.link = Object(_createLink__WEBPACK_IMPORTED_MODULE_2__["createLink"])(_data__WEBPACK_IMPORTED_MODULE_0__["dataWeather"][elemt]);
-    item.weekWeatherLink = Object(_createLink__WEBPACK_IMPORTED_MODULE_2__["createLink"])(_data__WEBPACK_IMPORTED_MODULE_0__["dataWeather"][elemt]);
-    Object(_request__WEBPACK_IMPORTED_MODULE_1__["request"])(item.link);
-  }
-}
+  return city;
+}();
 
 /***/ }),
 
@@ -284,10 +191,19 @@ function startApp() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _weather_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather_app.scss */ "./src/weather_app/weather_app.scss");
 /* harmony import */ var _weather_app_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_weather_app_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _startApp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./startApp */ "./src/weather_app/startApp.js");
+/* harmony import */ var _oop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./oop */ "./src/weather_app/oop.js");
 
 
-Object(_startApp__WEBPACK_IMPORTED_MODULE_1__["startApp"])();
+var arr = ["Kiev", "Copenhagen", "kair", "Thisted", "Berlin", "brasilia", "Mexiko", "Tokio", "Pekin", "honolulu"];
+
+for (var _i = 0, _arr = arr; _i < _arr.length; _i++) {
+  var element = _arr[_i];
+  element = new _oop__WEBPACK_IMPORTED_MODULE_1__["city"](element);
+  console.log(element);
+}
+
+var varde = new _oop__WEBPACK_IMPORTED_MODULE_1__["city"]("varde");
+varde.createButton();
 
 /***/ }),
 
