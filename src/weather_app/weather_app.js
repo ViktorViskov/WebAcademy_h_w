@@ -1,13 +1,14 @@
 import './weather_app.scss';
 import { city } from "./oop";
-let arr = ["Kiev", "Copenhagen", "kair", "Thisted", "Berlin", "brasilia", "Mexiko", "Tokio", "Pekin", "honolulu"];
+import { createButton } from "./createButton";
+import { checkData } from "./lab";
+export let arr = checkData();
+console.log(arr);
+
+
 for (let element of arr) {
-    element = new city(element);
-
-    console.log(element);
+    new city(element);
 }
-let varde = new city("varde");
-varde.createButton();
-
+createButton()
 
 

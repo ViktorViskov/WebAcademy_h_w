@@ -1,0 +1,36 @@
+{
+    "dt": 1580320800,
+    "main": {
+        "temp": 0.5,
+        "feels_like": -6.02,
+        "temp_min": 0.5,
+        "temp_max": 1.14,
+        "pressure": 999,
+        "sea_level": 999,
+        "grnd_level": 982,
+        "humidity": 95,
+        "temp_kf": -0.64
+    },
+    "weather": [
+        {
+            "id": 601,
+            "main": "Snow",
+            "description": "сніг",
+            "icon": "13n"
+        }
+    ],
+    "clouds": {
+        "all": 100
+    },
+    "wind": {
+        "speed": 6.43,
+        "deg": 286
+    },
+    "snow": {
+        "3h": 2.56
+    },
+    "sys": {
+        "pod": "n"
+    },
+    "dt_txt": "2020-01-29 18:00:00"
+}

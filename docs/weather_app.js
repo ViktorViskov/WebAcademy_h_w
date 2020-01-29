@@ -86,6 +86,126 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/weather_app/createButton.js":
+/*!*****************************************!*\
+  !*** ./src/weather_app/createButton.js ***!
+  \*****************************************/
+/*! exports provided: createButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createButton", function() { return createButton; });
+/* harmony import */ var _lab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lab */ "./src/weather_app/lab.js");
+/* harmony import */ var _oop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./oop */ "./src/weather_app/oop.js");
+
+
+function createButton() {
+  var mp = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector(".container");
+  var button = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("li", "container__item");
+  button.classList.add("container__item_button");
+  var buttonInput = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("input", "container__input");
+  buttonInput.placeholder = "Введіть назву міста";
+  buttonInput.id = "inputArea";
+  buttonInput.type = "text";
+  button.appendChild(buttonInput);
+  var buttonItem = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("h1", "container__title");
+  buttonItem.textContent = "Додати місто";
+  button.appendChild(buttonItem);
+  buttonItem.addEventListener('click', function () {
+    Object(_lab__WEBPACK_IMPORTED_MODULE_0__["checkData"])();
+
+    if (inputArea.value !== "") {
+      Object(_lab__WEBPACK_IMPORTED_MODULE_0__["addItem"])(inputArea.value);
+      new _oop__WEBPACK_IMPORTED_MODULE_1__["city"](inputArea.value);
+    } else {
+      alert("Введіть місто!");
+    }
+  });
+  mp.appendChild(button);
+}
+
+/***/ }),
+
+/***/ "./src/weather_app/lab.js":
+/*!********************************!*\
+  !*** ./src/weather_app/lab.js ***!
+  \********************************/
+/*! exports provided: removeItem, addItem, createTag, getFromLocal, setToLocal, checkData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeItem", function() { return removeItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addItem", function() { return addItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTag", function() { return createTag; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromLocal", function() { return getFromLocal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setToLocal", function() { return setToLocal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkData", function() { return checkData; });
+function removeItem(item) {
+  var arr = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : getFromLocal();
+  var exArr = [];
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var element = _step.value;
+
+      if (element == item) {
+        continue;
+      } else {
+        exArr.push(element);
+      }
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+        _iterator["return"]();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  setToLocal(exArr);
+}
+function addItem(item) {
+  var arr = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : getFromLocal();
+  arr.push(item);
+  setToLocal(arr);
+  return arr;
+}
+function createTag(name, className) {
+  var element = document.createElement(name);
+  element.classList.add(className);
+  return element;
+}
+function getFromLocal() {
+  return JSON.parse(localStorage.getItem("cities"));
+}
+function setToLocal(arr) {
+  localStorage.setItem("cities", JSON.stringify(arr));
+}
+function checkData() {
+  var data = getFromLocal();
+
+  if (data === null) {
+    setToLocal(["Київ"]);
+    return getFromLocal();
+  } else {
+    return data;
+  }
+}
+
+/***/ }),
+
 /***/ "./src/weather_app/oop.js":
 /*!********************************!*\
   !*** ./src/weather_app/oop.js ***!
@@ -96,11 +216,13 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "city", function() { return city; });
+/* harmony import */ var _lab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lab */ "./src/weather_app/lab.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 var city =
 /*#__PURE__*/
@@ -124,54 +246,49 @@ function () {
       this.xhr.send();
 
       this.xhr.onload = function () {
-        _this.xhr.data = JSON.parse(_this.xhr.response);
+        if (_this.xhr.status >= 200 && _this.xhr.status < 400) {
+          _this.xhr.data = JSON.parse(_this.xhr.response);
 
-        _this.createPage(_this.xhr.data);
+          _this.createPage(_this.xhr.data);
+        } else {
+          alert("\u041F\u043E\u043C\u0438\u043B\u043A\u0430! \u041C\u0456\u0441\u0442\u043E ".concat(_this.cityName, " \u043D\u0435 \u0437\u043D\u0430\u0439\u0434\u0435\u043D\u043E! \u0421\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0432\u0432\u0435\u0441\u0442\u0438 \u043C\u0456\u0441\u0442\u043E \u043D\u0430 \u0456\u043D\u0448\u0456\u0439 \u043C\u043E\u0432\u0456 \u0430\u0431\u043E \u0432\u0432\u0435\u0434\u0456\u0442\u044C \u0456\u043D\u0448\u0435 \u043C\u0456\u0441\u0442\u043E"));
+          Object(_lab__WEBPACK_IMPORTED_MODULE_0__["removeItem"])(_this.cityName);
+        }
       };
-    }
-  }, {
-    key: "createTag",
-    value: function createTag(name, className) {
-      var element = document.createElement(name);
-      element.classList.add(className);
-      return element;
     }
   }, {
     key: "createPage",
     value: function createPage(data) {
+      var _this2 = this;
+
       var mp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.querySelector(".container");
-      var containerItem = this.createTag("li", "container__item");
+      var containerItem = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("li", "container__item");
       containerItem.style.backgroundImage = "url('https://source.unsplash.com/random?".concat(data.name, ",landscape')");
       containerItem.title = data.weather[0].description;
       containerItem.addEventListener('click', function () {
-        var dadat = new Date(data.sys.sunrise * 1000);
-        console.log(dadat);
+        containerItem.classList.add("container__item_active");
       });
-      var containerTitle = this.createTag("h1", "container__title");
+      var containerTitle = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("h1", "container__title");
       containerTitle.textContent = data.name;
       containerItem.appendChild(containerTitle);
-      var containerTemp = this.createTag("h2", "container__temp");
+      var containerTemp = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("h2", "container__temp");
       containerTemp.textContent = Math.round(data.main.temp);
       containerItem.appendChild(containerTemp);
-      var containerIcon = this.createTag("img", "container__icon");
+      var containerIcon = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("img", "container__icon");
       containerIcon.src = "http://openweathermap.org/img/wn/".concat(data.weather[0].icon, "@2x.png");
       containerItem.appendChild(containerIcon);
+      var containerBtn = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__btn");
+      var containerFirstLine = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__line");
+      var containerSecondLine = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__line");
+      containerBtn.appendChild(containerFirstLine);
+      containerBtn.appendChild(containerSecondLine);
+      containerBtn.addEventListener('click', function () {
+        Object(_lab__WEBPACK_IMPORTED_MODULE_0__["removeItem"])(_this2.cityName);
+        containerItem.remove();
+      });
+      containerBtn.title = "Видалити";
+      containerItem.appendChild(containerBtn);
       mp.prepend(containerItem);
-    }
-  }, {
-    key: "createButton",
-    value: function createButton() {
-      var mp = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector(".container");
-      var button = this.createTag("li", "container__item");
-      button.classList.add("container__item_button");
-      var buttonInput = this.createTag("input", "container__input");
-      buttonInput.placeholder = "Введіть назву міста";
-      buttonInput.type = "text";
-      button.appendChild(buttonInput);
-      var buttonItem = this.createTag("h1", "container__title");
-      buttonItem.textContent = "Додати місто";
-      button.appendChild(buttonItem);
-      mp.appendChild(button);
     }
   }]);
 
@@ -184,26 +301,48 @@ function () {
 /*!****************************************!*\
   !*** ./src/weather_app/weather_app.js ***!
   \****************************************/
-/*! no exports provided */
+/*! exports provided: arr */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "arr", function() { return arr; });
 /* harmony import */ var _weather_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather_app.scss */ "./src/weather_app/weather_app.scss");
 /* harmony import */ var _weather_app_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_weather_app_scss__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _oop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./oop */ "./src/weather_app/oop.js");
+/* harmony import */ var _createButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createButton */ "./src/weather_app/createButton.js");
+/* harmony import */ var _lab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lab */ "./src/weather_app/lab.js");
 
 
-var arr = ["Kiev", "Copenhagen", "kair", "Thisted", "Berlin", "brasilia", "Mexiko", "Tokio", "Pekin", "honolulu"];
 
-for (var _i = 0, _arr = arr; _i < _arr.length; _i++) {
-  var element = _arr[_i];
-  element = new _oop__WEBPACK_IMPORTED_MODULE_1__["city"](element);
-  console.log(element);
+
+var arr = Object(_lab__WEBPACK_IMPORTED_MODULE_3__["checkData"])();
+console.log(arr);
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+  for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    var element = _step.value;
+    new _oop__WEBPACK_IMPORTED_MODULE_1__["city"](element);
+  }
+} catch (err) {
+  _didIteratorError = true;
+  _iteratorError = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+      _iterator["return"]();
+    }
+  } finally {
+    if (_didIteratorError) {
+      throw _iteratorError;
+    }
+  }
 }
 
-var varde = new _oop__WEBPACK_IMPORTED_MODULE_1__["city"]("varde");
-varde.createButton();
+Object(_createButton__WEBPACK_IMPORTED_MODULE_2__["createButton"])();
 
 /***/ }),
 

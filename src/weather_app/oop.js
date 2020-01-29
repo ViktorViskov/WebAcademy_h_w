@@ -1,3 +1,4 @@
+import { createTag, removeItem } from "./lab";
 export class city {
     constructor(cityName) {
         this.cityName = cityName;
@@ -13,64 +14,65 @@ export class city {
         this.xhr.open("GET", url);
         this.xhr.send();
         this.xhr.onload = () => {
-            this.xhr.data = JSON.parse(this.xhr.response);
-            this.createPage(this.xhr.data);
+            if (this.xhr.status >= 200 && this.xhr.status < 400) {
+                this.xhr.data = JSON.parse(this.xhr.response);
+                this.createPage(this.xhr.data);
+            }
+            else {
+                alert(`Помилка! Місто ${this.cityName} не знайдено! Спробуйте ввести місто на іншій мові або введіть інше місто`);
+                removeItem(this.cityName);
+
+            }
+
         };
     }
 
 
 
 
-    createTag(name, className) {
-        let element = document.createElement(name);
-        element.classList.add(className);
-        return element;
-    }
+
 
 
     createPage(data, mp = document.querySelector(".container")) {
 
-        let containerItem = this.createTag("li", "container__item");
+        let containerItem = createTag("li", "container__item");
         containerItem.style.backgroundImage = `url('https://source.unsplash.com/random?${data.name},landscape')`;
         containerItem.title = data.weather[0].description;
         containerItem.addEventListener('click', () => {
-            let dadat = new Date(data.sys.sunrise * 1000);
-            console.log(dadat);
-        });
+            containerItem.classList.add("container__item_active");
+        })
 
 
-        let containerTitle = this.createTag("h1", "container__title");
+        let containerTitle = createTag("h1", "container__title");
         containerTitle.textContent = data.name;
         containerItem.appendChild(containerTitle);
 
 
-        let containerTemp = this.createTag("h2", "container__temp");
+        let containerTemp = createTag("h2", "container__temp");
         containerTemp.textContent = Math.round(data.main.temp);
         containerItem.appendChild(containerTemp);
 
 
-        let containerIcon = this.createTag("img", "container__icon");
+        let containerIcon = createTag("img", "container__icon");
         containerIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
         containerItem.appendChild(containerIcon);
 
 
+        let containerBtn = createTag("div", "container__btn");
+        let containerFirstLine = createTag("div", "container__line");
+        let containerSecondLine = createTag("div", "container__line");
+        containerBtn.appendChild(containerFirstLine);
+        containerBtn.appendChild(containerSecondLine);
+        containerBtn.addEventListener('click', () => {
+            removeItem(this.cityName);
+            containerItem.remove();
+        });
+        containerBtn.title = "Видалити";
+
+        containerItem.appendChild(containerBtn);
+
+
         mp.prepend(containerItem);
-
-    }
-
-    createButton(mp = document.querySelector(".container")) {
-        let button = this.createTag("li", "container__item");
-        button.classList.add("container__item_button");
-
-        let buttonInput = this.createTag("input", "container__input");
-        buttonInput.placeholder = "Введіть назву міста";
-        buttonInput.type = "text";
-        button.appendChild(buttonInput);
-
-        let buttonItem = this.createTag("h1", "container__title");
-        buttonItem.textContent = "Додати місто";
-        button.appendChild(buttonItem);
-        mp.appendChild(button);
 
     }
 }

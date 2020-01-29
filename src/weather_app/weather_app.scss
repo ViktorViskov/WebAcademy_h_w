@@ -19,8 +19,10 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     &__item {  
+        position: relative;
         min-width: 200px;         
-        background-image: url('https://source.unsplash.com/random?ukraine');
+        background-image: url('https://source.unsplash.com/random?city,landscape');
+        background-position: center;
         background-size: cover;
         flex-grow: 1;
         display: flex;
@@ -29,7 +31,11 @@ body {
         align-items: center;
         text-align: center;
         cursor: pointer;
+        transition: he 0.5s;
         /* filter: brightness(0.3); */
+        &:hover .container__line {
+            background-color: red;
+        }
     }
     &__title {
         margin: 25px 15px;
@@ -42,15 +48,6 @@ body {
         color: white;
         text-shadow: 0px 0px 15px black;        
     }
-    &__block {
-        position: fixed;
-        width: 85vw;
-        height: 85vh;
-        background-color: #fff;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50% , -50%);
-    } 
     &__icon {
         background-color: rgba(255, 255, 255, 0.7);
         box-shadow:  0px 0px 10px 10px rgba(255, 255, 255, 0.7);
@@ -65,5 +62,47 @@ body {
         border: none;
         text-align: center;
     }
+    &__btn {
+        position: absolute;
+        height: 35px;
+        width: 35px;
+        top: 25px;
+        right: 25px;
+    }
+    &__line {
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        top: 50%;
+        border-radius: 2px;
+        transition: background-color 0.7s;
+        &:first-child {            
+            transform: translateY(-50%) rotate(45deg);
+        }
+        &:last-child {
+            transform: translateY(-50%) rotate(-45deg);
+        }
+    }
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #000000a1;
+        background-size: cover;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+    }
+    &__element {
+        display: flex;
+        justify-content: space-between;
+        &:nth-child(even){
+            background-color: whitesmoke;
+        }
+    }
+    &__block {
+        background-color: #fff;
+    }
+    
 }
 
