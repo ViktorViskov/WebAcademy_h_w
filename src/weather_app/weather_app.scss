@@ -24,24 +24,35 @@ body {
         background-image: url('https://source.unsplash.com/random?city,landscape');
         background-position: center;
         background-size: cover;
-        flex-grow: 1;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
+        flex-grow: 1;
+        
         cursor: pointer;
         transition: he 0.5s;
         /* filter: brightness(0.3); */
         &:hover .container__line {
             background-color: red;
         }
+        
+    }
+    &__box {
+        
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        
     }
     &__title {
         margin: 25px 15px;
         font-size: 50px;
         color: white;
         text-shadow: 0px 0px 15px black;
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
     }
     &__temp {
         font-size: 30px;
@@ -75,6 +86,7 @@ body {
         width: 100%;
         top: 50%;
         border-radius: 2px;
+        background-color: rgba(255, 0, 0, 0.2);
         transition: background-color 0.7s;
         &:first-child {            
             transform: translateY(-50%) rotate(45deg);
@@ -85,24 +97,31 @@ body {
     }
     &__content {
         display: flex;
+        justify-content: space-between;
         flex-wrap: wrap;
         background-color: #000000a1;
         background-size: cover;
         position: absolute;
-        width: 100%;
-        height: 100%;
         z-index: 10;
+        background-color: #fff;
+        &:hover .container__line {
+            background-color: red;
+        }
     }
-    &__element {
+    &__block {
+        text-align: center;
+        
+    }
+    &__element { 
         display: flex;
         justify-content: space-between;
+        
         &:nth-child(even){
             background-color: whitesmoke;
         }
     }
-    &__block {
-        background-color: #fff;
+    &__text + &__text {
+        padding-left: 25px;
     }
     
 }
-

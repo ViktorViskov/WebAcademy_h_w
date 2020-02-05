@@ -104,14 +104,16 @@ function createButton() {
   var mp = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector(".container");
   var button = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("li", "container__item");
   button.classList.add("container__item_button");
+  var box = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__box");
   var buttonInput = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("input", "container__input");
   buttonInput.placeholder = "Введіть назву міста";
   buttonInput.id = "inputArea";
   buttonInput.type = "text";
-  button.appendChild(buttonInput);
-  var buttonItem = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("h1", "container__title");
+  box.appendChild(buttonInput);
+  var buttonItem = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("button", "container__title");
   buttonItem.textContent = "Додати місто";
-  button.appendChild(buttonItem);
+  box.appendChild(buttonItem);
+  button.appendChild(box);
   buttonItem.addEventListener('click', function () {
     Object(_lab__WEBPACK_IMPORTED_MODULE_0__["checkData"])();
 
@@ -131,7 +133,7 @@ function createButton() {
 /*!********************************!*\
   !*** ./src/weather_app/lab.js ***!
   \********************************/
-/*! exports provided: removeItem, addItem, createTag, getFromLocal, setToLocal, checkData */
+/*! exports provided: removeItem, addItem, createTag, getFromLocal, setToLocal, checkData, takeDate, dayFromDate, transformDate */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -142,6 +144,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromLocal", function() { return getFromLocal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setToLocal", function() { return setToLocal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkData", function() { return checkData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "takeDate", function() { return takeDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dayFromDate", function() { return dayFromDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transformDate", function() { return transformDate; });
 function removeItem(item) {
   var arr = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : getFromLocal();
   var exArr = [];
@@ -203,6 +208,19 @@ function checkData() {
     return data;
   }
 }
+function takeDate(timeInSec) {
+  return new Date(timeInSec * 1000);
+}
+function dayFromDate(timeInSec) {
+  var days = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"];
+  var day = takeDate(timeInSec);
+  return days[day.getDay()];
+}
+function transformDate(timeInSec) {
+  var mounth = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"];
+  var date = takeDate(timeInSec);
+  console.log(mounth[date.getMonth()]);
+}
 
 /***/ }),
 
@@ -217,11 +235,13 @@ function checkData() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "city", function() { return city; });
 /* harmony import */ var _lab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lab */ "./src/weather_app/lab.js");
+/* harmony import */ var _weekWeather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weekWeather */ "./src/weather_app/weekWeather.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 var city =
@@ -257,33 +277,55 @@ function () {
       };
     }
   }, {
+    key: "requestForWeek",
+    value: function requestForWeek(url) {
+      var _this2 = this;
+
+      this.xhrWeek = new XMLHttpRequest();
+      this.xhrWeek.open("GET", url);
+      this.xhrWeek.send();
+
+      this.xhrWeek.onload = function () {
+        if (_this2.xhrWeek.status >= 200 && _this2.xhrWeek.status < 400) {
+          _this2.xhrWeek.data = JSON.parse(_this2.xhrWeek.response);
+          new _weekWeather__WEBPACK_IMPORTED_MODULE_1__["weekWeather"](_this2.xhrWeek.data);
+        } else {
+          alert("\u041F\u043E\u043C\u0438\u043B\u043A\u0430! \u041C\u0456\u0441\u0442\u043E ".concat(_this2.cityName, " \u043D\u0435 \u0437\u043D\u0430\u0439\u0434\u0435\u043D\u043E! \u0421\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0432\u0432\u0435\u0441\u0442\u0438 \u043C\u0456\u0441\u0442\u043E \u043D\u0430 \u0456\u043D\u0448\u0456\u0439 \u043C\u043E\u0432\u0456 \u0430\u0431\u043E \u0432\u0432\u0435\u0434\u0456\u0442\u044C \u0456\u043D\u0448\u0435 \u043C\u0456\u0441\u0442\u043E"));
+          Object(_lab__WEBPACK_IMPORTED_MODULE_0__["removeItem"])(_this2.cityName);
+        }
+      };
+    }
+  }, {
     key: "createPage",
     value: function createPage(data) {
-      var _this2 = this;
+      var _this3 = this;
 
       var mp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.querySelector(".container");
       var containerItem = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("li", "container__item");
       containerItem.style.backgroundImage = "url('https://source.unsplash.com/random?".concat(data.name, ",landscape')");
       containerItem.title = data.weather[0].description;
-      containerItem.addEventListener('click', function () {
-        containerItem.classList.add("container__item_active");
+      var containerBox = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__box");
+      containerBox.addEventListener('click', function () {
+        /* containerItem.classList.add("container__item_active"); */
+        _this3.requestForWeek(_this3.apiWeekWeather);
       });
       var containerTitle = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("h1", "container__title");
       containerTitle.textContent = data.name;
-      containerItem.appendChild(containerTitle);
+      containerBox.appendChild(containerTitle);
       var containerTemp = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("h2", "container__temp");
       containerTemp.textContent = Math.round(data.main.temp);
-      containerItem.appendChild(containerTemp);
+      containerBox.appendChild(containerTemp);
       var containerIcon = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("img", "container__icon");
       containerIcon.src = "http://openweathermap.org/img/wn/".concat(data.weather[0].icon, "@2x.png");
-      containerItem.appendChild(containerIcon);
+      containerBox.appendChild(containerIcon);
+      containerItem.appendChild(containerBox);
       var containerBtn = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__btn");
       var containerFirstLine = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__line");
       var containerSecondLine = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__line");
       containerBtn.appendChild(containerFirstLine);
       containerBtn.appendChild(containerSecondLine);
       containerBtn.addEventListener('click', function () {
-        Object(_lab__WEBPACK_IMPORTED_MODULE_0__["removeItem"])(_this2.cityName);
+        Object(_lab__WEBPACK_IMPORTED_MODULE_0__["removeItem"])(_this3.cityName);
         containerItem.remove();
       });
       containerBtn.title = "Видалити";
@@ -354,6 +396,108 @@ Object(_createButton__WEBPACK_IMPORTED_MODULE_2__["createButton"])();
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/weather_app/weekWeather.js":
+/*!****************************************!*\
+  !*** ./src/weather_app/weekWeather.js ***!
+  \****************************************/
+/*! exports provided: weekWeather */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "weekWeather", function() { return weekWeather; });
+/* harmony import */ var _lab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lab */ "./src/weather_app/lab.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+var weekWeather =
+/*#__PURE__*/
+function () {
+  function weekWeather(weekArr) {
+    var _this = this;
+
+    _classCallCheck(this, weekWeather);
+
+    this.weekArr = weekArr;
+    this.containerContent = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("li", "container__content");
+
+    for (var item in weekArr.list) {
+      this.renderPage(document.querySelector(".container"), weekArr.list[item]);
+    }
+
+    var containerBtn = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__btn");
+    var containerFirstLine = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__line");
+    var containerSecondLine = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__line");
+    containerBtn.appendChild(containerFirstLine);
+    containerBtn.appendChild(containerSecondLine);
+    containerBtn.addEventListener('click', function () {
+      _this.containerContent.remove();
+    });
+    containerBtn.title = "Видалити";
+    this.containerContent.appendChild(containerBtn);
+  }
+
+  _createClass(weekWeather, [{
+    key: "renderPage",
+    value: function renderPage() {
+      var mp = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector(".container");
+      var arr = arguments.length > 1 ? arguments[1] : undefined;
+      var containerBlock = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__block");
+      console.log(arr);
+      containerBlock.title = arr.weather[0].description;
+      var containerIcon = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("img", "container__icon");
+      containerIcon.src = "http://openweathermap.org/img/wn/".concat(arr.weather[0].icon, "@2x.png");
+      containerBlock.appendChild(containerIcon);
+      this.renderDate(containerBlock, arr.dt);
+      var containerTime = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__time");
+      containerTime.textContent = arr.dt_txt;
+      containerBlock.appendChild(containerTime);
+      this.renderContainerElement(containerBlock, "Температура", arr.main.temp);
+      this.renderContainerElement(containerBlock, "Відчуваєтсья", arr.main.feels_like);
+      this.renderContainerElement(containerBlock, "Атмосферний тиск", arr.main.pressure);
+      this.renderContainerElement(containerBlock, "Вологість", arr.main.humidity);
+      this.renderContainerElement(containerBlock, "Швидкість вітру", arr.wind.speed);
+      this.renderContainerElement(containerBlock, "Напрям", arr.wind.deg);
+      this.containerContent.appendChild(containerBlock);
+      mp.appendChild(this.containerContent);
+    }
+  }, {
+    key: "renderDate",
+    value: function renderDate(mp, date) {
+      var containerDate = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__date");
+      var containerDay = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("span", "conteiner__day");
+      containerDay.textContent = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["dayFromDate"])(date);
+      var containerMonth = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("span", "conteiner__Month");
+      containerMonth.textContent =
+      /* this.weekArr.dt_txt; */
+      Object(_lab__WEBPACK_IMPORTED_MODULE_0__["transformDate"])(date);
+      containerDate.appendChild(containerDay);
+      containerDate.appendChild(containerMonth);
+      mp.appendChild(containerDate);
+    }
+  }, {
+    key: "renderContainerElement",
+    value: function renderContainerElement(mp, name, value) {
+      var containerElement = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__element");
+      var containerName = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("span", "container__text");
+      containerName.textContent = name;
+      var containerValue = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("span", "container__text");
+      containerValue.textContent = value;
+      containerElement.appendChild(containerName);
+      containerElement.appendChild(containerValue);
+      mp.appendChild(containerElement);
+    }
+  }]);
+
+  return weekWeather;
+}();
 
 /***/ }),
 

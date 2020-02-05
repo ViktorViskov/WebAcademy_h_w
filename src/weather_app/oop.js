@@ -1,4 +1,5 @@
 import { createTag, removeItem } from "./lab";
+import { weekWeather } from "./weekWeather";
 export class city {
     constructor(cityName) {
         this.cityName = cityName;
@@ -27,6 +28,24 @@ export class city {
         };
     }
 
+    requestForWeek(url) {
+        this.xhrWeek = new XMLHttpRequest();
+        this.xhrWeek.open("GET", url);
+        this.xhrWeek.send();
+        this.xhrWeek.onload = () => {
+            if (this.xhrWeek.status >= 200 && this.xhrWeek.status < 400) {
+                this.xhrWeek.data = JSON.parse(this.xhrWeek.response);
+                new weekWeather(this.xhrWeek.data);
+            }
+            else {
+                alert(`Помилка! Місто ${this.cityName} не знайдено! Спробуйте ввести місто на іншій мові або введіть інше місто`);
+                removeItem(this.cityName);
+
+            }
+
+        };
+    }
+
 
 
 
@@ -38,24 +57,31 @@ export class city {
         let containerItem = createTag("li", "container__item");
         containerItem.style.backgroundImage = `url('https://source.unsplash.com/random?${data.name},landscape')`;
         containerItem.title = data.weather[0].description;
-        containerItem.addEventListener('click', () => {
-            containerItem.classList.add("container__item_active");
+
+
+
+        let containerBox = createTag("div", "container__box");
+        containerBox.addEventListener('click', () => {
+            /* containerItem.classList.add("container__item_active"); */
+            this.requestForWeek(this.apiWeekWeather);
+
         })
 
 
         let containerTitle = createTag("h1", "container__title");
         containerTitle.textContent = data.name;
-        containerItem.appendChild(containerTitle);
+        containerBox.appendChild(containerTitle);
 
 
         let containerTemp = createTag("h2", "container__temp");
         containerTemp.textContent = Math.round(data.main.temp);
-        containerItem.appendChild(containerTemp);
+        containerBox.appendChild(containerTemp);
 
 
         let containerIcon = createTag("img", "container__icon");
         containerIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-        containerItem.appendChild(containerIcon);
+        containerBox.appendChild(containerIcon);
+        containerItem.appendChild(containerBox);
 
 
         let containerBtn = createTag("div", "container__btn");
@@ -70,6 +96,7 @@ export class city {
         containerBtn.title = "Видалити";
 
         containerItem.appendChild(containerBtn);
+
 
 
         mp.prepend(containerItem);

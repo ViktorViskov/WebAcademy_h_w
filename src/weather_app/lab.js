@@ -41,3 +41,17 @@ export function checkData() {
         return data;
     }
 }
+export function takeDate(timeInSec) {
+    return new Date(timeInSec * 1000);
+}
+
+export function dayFromDate(timeInSec) {
+    let days = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"]
+    let day = takeDate(timeInSec);
+    return days[day.getDay()]
+}
+export function transformDate(timeInSec) {
+    let mounth = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"];
+    let date = takeDate(timeInSec);
+    console.log(mounth[date.getMonth()]);
+}
