@@ -133,7 +133,7 @@ function createButton() {
 /*!********************************!*\
   !*** ./src/weather_app/lab.js ***!
   \********************************/
-/*! exports provided: removeItem, addItem, createTag, getFromLocal, setToLocal, checkData, takeDate, dayFromDate, transformDate */
+/*! exports provided: removeItem, addItem, createTag, getFromLocal, setToLocal, checkData, takeDate, dayFromDate, transformDate, timeFromDate */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -147,6 +147,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "takeDate", function() { return takeDate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dayFromDate", function() { return dayFromDate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transformDate", function() { return transformDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "timeFromDate", function() { return timeFromDate; });
 function removeItem(item) {
   var arr = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : getFromLocal();
   var exArr = [];
@@ -217,9 +218,15 @@ function dayFromDate(timeInSec) {
   return days[day.getDay()];
 }
 function transformDate(timeInSec) {
-  var mounth = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"];
+  var mounth = ["Січеня", "Лютого", "Березня", "Квітня", "Травня", "Червня", "Липня", "Серпн", "Вересня", "Жовтня", "Листопада", "Грудня"];
   var date = takeDate(timeInSec);
-  console.log(mounth[date.getMonth()]);
+  var day = date.getDate();
+  return " ".concat(day, " ").concat(mounth[date.getMonth()]);
+}
+function timeFromDate(timeInSec) {
+  var hours = takeDate(timeInSec);
+  var minuts = takeDate(timeInSec);
+  return "".concat(hours.getHours(), ":").concat(minuts.getMinutes(), "0");
 }
 
 /***/ }),
@@ -457,7 +464,7 @@ function () {
       containerBlock.appendChild(containerIcon);
       this.renderDate(containerBlock, arr.dt);
       var containerTime = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["createTag"])("div", "container__time");
-      containerTime.textContent = arr.dt_txt;
+      containerTime.textContent = Object(_lab__WEBPACK_IMPORTED_MODULE_0__["timeFromDate"])(arr.dt);
       containerBlock.appendChild(containerTime);
       this.renderContainerElement(containerBlock, "Температура", arr.main.temp);
       this.renderContainerElement(containerBlock, "Відчуваєтсья", arr.main.feels_like);

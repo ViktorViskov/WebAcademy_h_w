@@ -1,4 +1,4 @@
-import { createTag, dayFromDate, transformDate } from "./lab";
+import { createTag, dayFromDate, transformDate, timeFromDate } from "./lab";
 export class weekWeather {
     constructor(weekArr) {
         this.weekArr = weekArr;
@@ -38,7 +38,7 @@ export class weekWeather {
         this.renderDate(containerBlock, arr.dt);
 
         let containerTime = createTag("div", "container__time");
-        containerTime.textContent = arr.dt_txt;
+        containerTime.textContent = timeFromDate(arr.dt);
         containerBlock.appendChild(containerTime);
 
 

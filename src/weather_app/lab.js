@@ -51,7 +51,13 @@ export function dayFromDate(timeInSec) {
     return days[day.getDay()]
 }
 export function transformDate(timeInSec) {
-    let mounth = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"];
+    let mounth = ["Січеня", "Лютого", "Березня", "Квітня", "Травня", "Червня", "Липня", "Серпн", "Вересня", "Жовтня", "Листопада", "Грудня"];
     let date = takeDate(timeInSec);
-    console.log(mounth[date.getMonth()]);
+    let day = date.getDate();
+    return ` ${day} ${mounth[date.getMonth()]}`;
+}
+export function timeFromDate(timeInSec) {
+    let hours = takeDate(timeInSec);
+    let minuts = takeDate(timeInSec);
+    return `${hours.getHours()}:${minuts.getMinutes()}0`;
 }
